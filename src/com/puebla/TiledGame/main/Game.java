@@ -65,7 +65,6 @@ public class Game extends Canvas implements Runnable, KeyListener {
     public void update () {}
 
     public void draw() {
-        System.out.println("draw method was called...");
 
         BufferStrategy bufferStrategy = getBufferStrategy();
         if ( bufferStrategy == null) {
