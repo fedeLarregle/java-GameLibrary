@@ -12,8 +12,7 @@ public class GameOverState implements GameState {
     }
 
     @Override
-    public GameState update() {
-        return null;
+    public void update() {
     }
 
     @Override

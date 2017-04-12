@@ -1,6 +1,9 @@
 package com.puebla.TiledGame.main;
 
+import com.puebla.TiledGame.gameStates.GameState;
+import com.puebla.TiledGame.gameStates.MenuState;
 import com.puebla.TiledGame.manager.GameLogic;
+import com.puebla.TiledGame.manager.KeyController;
 
 import javax.swing.JFrame;
 import java.awt.Canvas;
@@ -29,6 +32,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private JFrame frame;
     private BufferedImage image;
 
+    private GameState gameState;
+
 
     public Game() {
 
@@ -38,6 +43,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         requestFocus();
 
         frame = new JFrame();
+        gameState = new MenuState(this);
         addKeyListener(this);
     }
 
@@ -62,7 +68,9 @@ public class Game extends Canvas implements Runnable, KeyListener {
         GameLogic.gameLoop(thread, this);
     }
 
-    public void update () {}
+    public void update () {
+        gameState.update();
+    }
 
     public void draw() {
 
@@ -75,6 +83,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         Graphics graphics = bufferStrategy.getDrawGraphics();
         graphics.setColor(Color.BLACK);
         graphics.fillRect(0, 0, WIDTH, HEIGHT);
+        gameState.draw(graphics);
         graphics.drawImage(image, 0, 0, WIDTH, HEIGHT, null);
 
         graphics.dispose();
@@ -88,14 +97,21 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        KeyController.setKey(e.getKeyCode(), true);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        KeyController.setKey(e.getKeyCode(), false);
     }
 
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
+    }
 
     public static void main (String... args) {
 
