@@ -50,7 +50,7 @@ public class KeyController {
     }
 
     public static boolean isPressed(int keyCode) {
-        return keyStates[keyCode] && !previousKeyStates[keyCode];
+        return keyStates[keyCode]; // && !previousKeyStates[keyCode]
     }
 
 }
