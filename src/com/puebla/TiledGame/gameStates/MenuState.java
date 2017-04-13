@@ -1,6 +1,7 @@
 package com.puebla.TiledGame.gameStates;
 
 import com.puebla.TiledGame.main.Game;
+import com.puebla.TiledGame.manager.DrawController;
 import com.puebla.TiledGame.manager.KeyController;
 
 import java.awt.Color;
@@ -36,28 +37,23 @@ public class MenuState implements GameState {
 
     @Override
     public void draw(Graphics graphics) {
+
+        /* Setting the initial x and y position */
         int x = (game.WIDTH) >>> 1;
         int y = (game.HEIGHT - 50) >>> 1;
-        Font font = null;
+
         for (int i = 0; i < options.length; i++) {
-            System.out.println("Current option: " + currentOption);
 
-            graphics.setColor(Color.WHITE);
-            /* Setting the font size depending on which option we are currently on */
-            if ( currentOption == i ) {
-                System.out.println("START");
-                font = new Font("TimesRoman", Font.PLAIN, 50);
+            if ( i == getCurrentOption() ) {
+                DrawController.drawTextContent(graphics, options[i], true, x, y);
             } else {
-                font = new Font("TimesRoman", Font.PLAIN, 30);
+                DrawController.drawTextContent(graphics, options[i], false, x, y);
             }
-
-            graphics.setFont(font);
-            x -= (graphics.getFontMetrics().stringWidth(options[i])) >> 1;
-            graphics.drawString(options[i], x, y);
 
             x = (game.WIDTH) >>> 1;
             y += 50;
         }
+
     }
 
     @Override
@@ -83,4 +79,6 @@ public class MenuState implements GameState {
             System.exit(0);
         }
     }
+
+    public int getCurrentOption() { return this.currentOption; }
 }
