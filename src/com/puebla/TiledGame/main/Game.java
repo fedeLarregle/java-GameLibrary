@@ -4,6 +4,7 @@ import com.puebla.TiledGame.gameStates.GameState;
 import com.puebla.TiledGame.gameStates.MenuState;
 import com.puebla.TiledGame.manager.GameLogic;
 import com.puebla.TiledGame.manager.KeyController;
+import com.puebla.TiledGame.tileMap.TileMap;
 
 import javax.swing.JFrame;
 import java.awt.Canvas;
@@ -33,6 +34,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private BufferedImage image;
 
     private GameState gameState;
+    private TileMap tileMap;
 
 
     public Game() {
@@ -70,6 +72,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     public void update () {
         gameState.update();
+        KeyController.update();
     }
 
     public void draw() {

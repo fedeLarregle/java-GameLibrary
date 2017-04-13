@@ -3,9 +3,8 @@ package com.puebla.TiledGame.gameStates;
 import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.DrawController;
 import com.puebla.TiledGame.manager.KeyController;
+import com.puebla.TiledGame.tileMap.TileMap;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 
 /**
@@ -73,7 +72,7 @@ public class MenuState implements GameState {
 
     private void selectOption() {
         if ( currentOption == 0 ) {
-            game.setGameState(new PlayState());
+            game.setGameState(new PlayState(new TileMap(32)));
         }
         if ( currentOption == 1 ) {
             System.exit(0);
