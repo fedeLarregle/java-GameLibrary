@@ -44,7 +44,6 @@ public class PlayState implements GameState{
             player.setLeft(true);
         }
         if (KeyController.isPressed(KeyController.RIGHT)) {
-            System.out.println("Right pressed");
             player.setRight(true);
         }
         if (KeyController.isPressed(KeyController.UP)) {

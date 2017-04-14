@@ -82,7 +82,6 @@ public class Player {
 
     public void update() {
         if ( isLeft() ) {
-            System.out.println("player is trying to move to the left");
             moveLeft();
         } else if ( isRight() ) {
             moveRight();
@@ -225,9 +224,9 @@ public class Player {
     private void calculateCorners(double x, double y) {
 
         int leftTile = tileMap.getCol((int) (x - (width >>> 1)));
-        int rightTile = tileMap.getCol((int) (x + (width >>> 1)));
+        int rightTile = tileMap.getCol((int) (x + (width >>> 1) - 1));
         int topTile = tileMap.getRow((int) (y - (height >>> 1)));
-        int bottomTile = tileMap.getRow((int) (y + (height >>> 1)));
+        int bottomTile = tileMap.getRow((int) (y + (height >>> 1) - 1));
         topLeft = tileMap.getTile(topTile, leftTile) == 0;
         topRight = tileMap.getTile(topTile, rightTile) == 0;
         bottomLeft = tileMap.getTile(bottomTile, leftTile) == 0;
