@@ -64,4 +64,18 @@ public class TileMap {
     public void setY(int y) {
         this.y = y;
     }
+
+    public int getCol(int x) {
+        return x / tileSize;
+    }
+
+    public int getRow(int y) {
+        return y / tileSize;
+    }
+
+    public int getTileSize() { return this.tileSize; }
+
+    public int getTile(int row, int col) {
+        return map[row][col];
+    }
 }

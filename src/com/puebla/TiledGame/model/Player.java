@@ -27,6 +27,11 @@ public class Player {
     private double maxSpeed;
     private double stoppingSpeed;
 
+    private boolean topLeft;
+    private boolean topRight;
+    private boolean bottomLeft;
+    private boolean bottomRight;
+
     private TileMap tileMap;
 
     public Player(TileMap tileMap) {
@@ -39,6 +44,9 @@ public class Player {
         stoppingSpeed = 0.3;
 
     }
+
+    public void setX(int x) { this.x = x; }
+    public void setY(int y) { this.y = y; }
 
     public boolean isLeft() {
         return left;
@@ -94,8 +102,54 @@ public class Player {
             }
         }
 
-        x += deltaX;
-        y += deltaY;
+        int currentCol = tileMap.getCol((int) x);
+        int currentRow = tileMap.getRow((int) y);
+
+        double toX = x + deltaX;
+        double toY = y + deltaY;
+
+        double tempX = x;
+        double tempY = y;
+
+        calculateCorners(x, toY);
+        if ( deltaY < 0 ) {
+            if ( topLeft || topRight ) {
+                deltaY = 0;
+                tempY = currentRow * tileMap.getTileSize() + (height >>> 1);
+            } else  {
+                tempY += deltaY;
+            }
+        }
+        if ( deltaY > 0 ) {
+            if ( bottomLeft || bottomRight ) {
+                deltaY = 0;
+                tempY = ( currentRow + 1 ) * tileMap.getTileSize() - (height >>> 1);
+            } else  {
+                tempY += deltaY;
+            }
+        }
+
+        calculateCorners(toX, y);
+
+        if ( deltaX < 0 ) {
+            if ( topLeft || bottomLeft ) {
+                deltaX = 0;
+                tempX = currentCol * tileMap.getTileSize() + (width >>> 1);
+            } else  {
+                tempX += deltaX;
+            }
+        }
+
+        if ( deltaX > 0 ) {
+            if ( topRight || bottomRight ) {
+                deltaX = 0;
+                tempX = (currentCol + 1) * tileMap.getTileSize() - (width >>> 1);
+            } else {
+                tempX += deltaX;
+            }
+        }
+        x  = tempX;
+        y  = tempY;
     }
 
     public void draw(Graphics graphics) {
@@ -166,5 +220,17 @@ public class Player {
         if ( deltaY > 0 ) {
             deltaY = 0;
         }
+    }
+
+    private void calculateCorners(double x, double y) {
+
+        int leftTile = tileMap.getCol((int) (x - (width >>> 1)));
+        int rightTile = tileMap.getCol((int) (x + (width >>> 1)));
+        int topTile = tileMap.getRow((int) (y - (height >>> 1)));
+        int bottomTile = tileMap.getRow((int) (y + (height >>> 1)));
+        topLeft = tileMap.getTile(topTile, leftTile) == 0;
+        topRight = tileMap.getTile(topTile, rightTile) == 0;
+        bottomLeft = tileMap.getTile(bottomTile, leftTile) == 0;
+        bottomRight = tileMap.getTile(bottomTile, rightTile) == 0;
     }
 }
