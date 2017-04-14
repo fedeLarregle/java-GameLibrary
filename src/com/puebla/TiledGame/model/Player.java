@@ -1,5 +1,6 @@
 package com.puebla.TiledGame.model;
 
+import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import java.awt.Color;
@@ -110,7 +111,9 @@ public class Player {
         double tempX = x;
         double tempY = y;
 
+        /* Calculate if there's any corner if you move up or down */
         calculateCorners(x, toY);
+        /* First checking if you move up */
         if ( deltaY < 0 ) {
             if ( topLeft || topRight ) {
                 deltaY = 0;
@@ -119,6 +122,7 @@ public class Player {
                 tempY += deltaY;
             }
         }
+        /* Then we check for moving down */
         if ( deltaY > 0 ) {
             if ( bottomLeft || bottomRight ) {
                 deltaY = 0;
@@ -128,8 +132,9 @@ public class Player {
             }
         }
 
+        /* Now we calculate if there's any corner when moving to the left or to the right */
         calculateCorners(toX, y);
-
+        /* First moving to the left */
         if ( deltaX < 0 ) {
             if ( topLeft || bottomLeft ) {
                 deltaX = 0;
@@ -138,7 +143,7 @@ public class Player {
                 tempX += deltaX;
             }
         }
-
+        /* Now moving to the right */
         if ( deltaX > 0 ) {
             if ( topRight || bottomRight ) {
                 deltaX = 0;
@@ -147,8 +152,13 @@ public class Player {
                 tempX += deltaX;
             }
         }
+        /* Finally we assign the value to the x and y respectively of our player */
         x  = tempX;
         y  = tempY;
+
+        /* Move the map in order for the player to be always on the center of the window */
+        tileMap.setX((int) ((Game.WIDTH >>> 1) - x));
+        tileMap.setY((int) ((Game.HEIGHT >>> 1) - y));
     }
 
     public void draw(Graphics graphics) {
