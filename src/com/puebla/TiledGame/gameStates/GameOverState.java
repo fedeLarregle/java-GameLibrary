@@ -21,6 +21,7 @@ public class GameOverState implements GameState {
 
     public GameOverState(Game game) {
         this.game = game;
+        this.currentOption = 0;
     }
 
     @Override

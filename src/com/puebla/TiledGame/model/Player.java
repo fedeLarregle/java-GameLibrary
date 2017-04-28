@@ -1,5 +1,6 @@
 package com.puebla.TiledGame.model;
 
+import com.puebla.TiledGame.gameStates.GameOverState;
 import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.tileMap.TileMap;
 
@@ -34,9 +35,11 @@ public class Player {
     private boolean bottomRight;
 
     private TileMap tileMap;
+    private Game game;
 
-    public Player(TileMap tileMap) {
+    public Player(Game game, TileMap tileMap) {
 
+        this.game = game;
         this.tileMap = tileMap;
         width = 24;
         height = 24;
@@ -241,5 +244,11 @@ public class Player {
         topRight = tileMap.getTile(topTile, rightTile) == 0;
         bottomLeft = tileMap.getTile(bottomTile, leftTile) == 0;
         bottomRight = tileMap.getTile(bottomTile, rightTile) == 0;
+
+        if (tileMap.getTile(topTile, leftTile) == 3 || tileMap.getTile(topTile, rightTile) == 3 ||
+                tileMap.getTile(bottomTile, leftTile) == 3 || tileMap.getTile(bottomTile, rightTile) == 3) {
+            game.setGameState(new GameOverState(game));
+        }
+
     }
 }

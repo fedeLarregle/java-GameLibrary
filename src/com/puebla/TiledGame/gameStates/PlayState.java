@@ -19,7 +19,7 @@ public class PlayState implements GameState{
     public PlayState(Game game, TileMap tileMap) {
         this.game = game;
         this.tileMap = tileMap;
-        this.player = new Player(tileMap);
+        this.player = new Player(game, tileMap);
         this.player.setX(50);
         this.player.setY(50);
     }

@@ -43,6 +43,10 @@ public class TileMap {
                     /* If we found a 1 in the txt map file we paint with a black color */
                     graphics.setColor(Color.BLACK);
                 }
+                if ( point == 3 ) {
+                    /* If we found a 3 in the txt map file we paint with a red color */
+                    graphics.setColor(Color.RED);
+                }
 
                 graphics.fillRect(x + col * tileSize, y + row * tileSize, tileSize, tileSize);
             }
