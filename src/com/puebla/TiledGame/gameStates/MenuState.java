@@ -72,7 +72,7 @@ public class MenuState implements GameState {
 
     private void selectOption() {
         if ( currentOption == 0 ) {
-            game.setGameState(new PlayState(new TileMap(32)));
+            game.setGameState(new PlayState(game, new TileMap(32)));
         }
         if ( currentOption == 1 ) {
             System.exit(0);

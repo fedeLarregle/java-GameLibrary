@@ -1,5 +1,6 @@
 package com.puebla.TiledGame.gameStates;
 
+import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.KeyController;
 import com.puebla.TiledGame.model.Player;
 import com.puebla.TiledGame.tileMap.TileMap;
@@ -12,9 +13,11 @@ import java.awt.Graphics;
 public class PlayState implements GameState{
 
     private TileMap tileMap;
+    private Game game;
     private Player player;
 
-    public PlayState(TileMap tileMap) {
+    public PlayState(Game game, TileMap tileMap) {
+        this.game = game;
         this.tileMap = tileMap;
         this.player = new Player(tileMap);
         this.player.setX(50);
@@ -40,6 +43,10 @@ public class PlayState implements GameState{
 
     @Override
     public void handleInput() {
+
+        if (KeyController.isPressed(KeyController.P)) {
+            game.setGameState(new PauseState(game, this));
+        }
         if (KeyController.isPressed(KeyController.LEFT)) {
             player.setLeft(true);
         }

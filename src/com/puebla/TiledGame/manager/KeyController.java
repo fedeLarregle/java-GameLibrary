@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
  */
 public class KeyController {
 
-    public static final int NUMBER_KEYS = 8;
+    public static final int NUMBER_KEYS = 9;
 
     public static boolean keyStates[] = new boolean[NUMBER_KEYS];
     public static boolean previousKeyStates[] = new boolean[NUMBER_KEYS];
@@ -19,8 +19,9 @@ public class KeyController {
 
     public static final int Z = 4;
     public static final int X = 5;
-    public static final int ENTER = 6;
-    public static final int ESCAPE = 7;
+    public static final int P = 6;
+    public static final int ENTER = 7;
+    public static final int ESCAPE = 8;
 
     public static void setKey(int keyCode, boolean state) {
         if ( keyCode == KeyEvent.VK_UP )  {
@@ -39,6 +40,8 @@ public class KeyController {
             keyStates[ENTER] = state;
         } else if ( keyCode == KeyEvent.VK_ESCAPE ) {
             keyStates[ESCAPE] = state;
+        } else if ( keyCode == KeyEvent.VK_P) {
+            keyStates[P] = state;
         }
     }
 
