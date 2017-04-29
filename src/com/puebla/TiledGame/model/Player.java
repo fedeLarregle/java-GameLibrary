@@ -10,7 +10,7 @@ import java.awt.Graphics;
 /**
  * Created by federico on 13/04/17.
  */
-public class Player {
+public class Player implements Entity{
 
     private double x;
     private double y;
@@ -84,6 +84,7 @@ public class Player {
         this.down = down;
     }
 
+    @Override
     public void update() {
         if ( isLeft() ) {
             moveLeft();
@@ -164,6 +165,7 @@ public class Player {
         tileMap.setY((int) ((Game.HEIGHT >>> 1) - y));
     }
 
+    @Override
     public void draw(Graphics graphics) {
 
         int tileX = tileMap.getX();
