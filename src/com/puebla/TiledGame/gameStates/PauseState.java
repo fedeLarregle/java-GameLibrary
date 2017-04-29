@@ -26,11 +26,6 @@ public class PauseState implements GameState {
 
 
     @Override
-    public void init() {
-
-    }
-
-    @Override
     public void update() {
         handleInput();
     }

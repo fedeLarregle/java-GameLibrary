@@ -24,10 +24,6 @@ public class GameOverState implements GameState {
         this.currentOption = 0;
     }
 
-    @Override
-    public void init() {
-
-    }
 
     @Override
     public void update() {

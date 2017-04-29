@@ -25,11 +25,6 @@ public class PlayState implements GameState{
     }
 
     @Override
-    public void init() {
-
-    }
-
-    @Override
     public void update() {
         handleInput();
         player.update();

@@ -7,7 +7,6 @@ import java.awt.Graphics;
  */
 public interface GameState {
 
-    public abstract void init();
     public abstract void update();
     public abstract void draw(Graphics graphics);
     public abstract void handleInput();
