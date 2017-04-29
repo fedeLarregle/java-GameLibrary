@@ -3,6 +3,7 @@ package com.puebla.TiledGame.model;
 import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.tileMap.TileMap;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -38,5 +39,14 @@ public class Enemy implements Entity{
     @Override
     public void draw(Graphics graphics) {
 
+        int tileX = tileMap.getX();
+        int tileY = tileMap.getY();
+
+        graphics.setColor(new Color(178,34,34));
+        graphics.fillRect(
+                ((int)(tileX + ( x - ( width >>> 1 ) ))),
+                ((int)(tileY + ( y - ( height >>> 1 ) ))),
+                width,
+                height);
     }
 }
