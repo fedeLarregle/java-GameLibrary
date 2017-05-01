@@ -84,6 +84,11 @@ public class Player implements Entity{
         this.down = down;
     }
 
+    public int getXPosition() { return (int) (tileMap.getX() + ( x - ( width >>> 1 ) )); }
+    public int getYPosition() { return (int) (tileMap.getY() + ( y - (height >>> 1 ) )); }
+    public int getX() { return ((int) this.x); }
+    public int getY() { return ((int) this.y); }
+
     @Override
     public void update() {
         if ( isLeft() ) {

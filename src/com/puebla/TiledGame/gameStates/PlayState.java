@@ -26,7 +26,7 @@ public class PlayState implements GameState{
         this.player.setY(50);
         this.enemy = new Enemy(game, tileMap, player);
         this.enemy.setX(80);
-        this.enemy.setY(80);
+        this.enemy.setY(50);
     }
 
     @Override

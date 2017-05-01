@@ -33,13 +33,105 @@ public class Enemy implements Entity{
         this.playerToSeek = playerToSeek;
         this.width = 24;
         this.height = 24;
-        this.moveSpeed = 0.4;
+        this.moveSpeed = 0.2;
         this.maxSpeed = 2.5;
         this.stoppingSpeed = 0.4;
     }
 
+    public int getXPosition() { return (int) (tileMap.getX() + ( x - ( width >>> 1 ) )); }
+
+    public int getYPosition() { return (int) (tileMap.getY() + ( y - ( height >>> 1) )); }
+
+    public void moveRight() {
+        deltaX += moveSpeed;
+        if ( deltaX > maxSpeed ) {
+            deltaX = maxSpeed;
+        }
+        this.x += deltaX;
+    }
+
+    public void moveLeft() {
+        deltaX -= moveSpeed;
+        if ( deltaX < -maxSpeed ) {
+            deltaX = -maxSpeed;
+        }
+        this.x += deltaX;
+    }
+
+    public void moveUp() {
+
+        deltaY -= moveSpeed;
+        if ( deltaY < -maxSpeed ) {
+            deltaY = -maxSpeed;
+        }
+        this.y += deltaY;
+    }
+
+    public void moveDown() {
+
+        deltaY += moveSpeed;
+        if ( deltaY > maxSpeed ) {
+            deltaY = maxSpeed;
+        }
+        this.y += deltaY;
+    }
+
+    public void stoppingToLeft() {
+        deltaX -= stoppingSpeed;
+        if ( deltaX < 0 ) {
+            deltaX = 0;
+        }
+        this.x += deltaX;
+    }
+
+    public void stoppingToRight() {
+        deltaX += stoppingSpeed;
+        if ( deltaX > 0 ) {
+            deltaX = 0;
+        }
+        this.x += deltaX;
+    }
+
+    public void stoppingToUp() {
+        deltaY -= stoppingSpeed;
+        if ( deltaY < 0 ) {
+            deltaY = 0;
+        }
+        this.y += deltaY;
+    }
+
+    public void stoppingToDown() {
+        deltaY += stoppingSpeed;
+        if ( deltaY > 0 ) {
+            deltaY = 0;
+        }
+        this.y += deltaY;
+    }
+
     @Override
     public void update() {
+
+        if ( ((this.playerToSeek.getX() - this.getX()) > 0) ) {
+            this.moveRight();
+        } else if ( ((this.playerToSeek.getX() - this.getX()) < 0) ) {
+            this.moveLeft();
+        }
+        if ( (this.playerToSeek.getY() - this.getY()) > 0 ) {
+            this.moveDown();
+        } else if ( (this.playerToSeek.getY() - this.getY()) < 0 ) {
+            this.moveUp();
+        }
+        else {
+            if (deltaX > 0) {
+                stoppingToLeft();
+            } else if (deltaX < 0) {
+                stoppingToRight();
+            } else if (deltaY > 0) {
+                stoppingToUp();
+            } else if (deltaY < 0) {
+                stoppingToDown();
+            }
+        }
 
     }
 
