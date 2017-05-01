@@ -38,10 +38,6 @@ public class Enemy implements Entity{
         this.stoppingSpeed = 0.4;
     }
 
-    public int getXPosition() { return (int) (tileMap.getX() + ( x - ( width >>> 1 ) )); }
-
-    public int getYPosition() { return (int) (tileMap.getY() + ( y - ( height >>> 1) )); }
-
     public void moveRight() {
         deltaX += moveSpeed;
         if ( deltaX > maxSpeed ) {
