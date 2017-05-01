@@ -2,6 +2,7 @@ package com.puebla.TiledGame.gameStates;
 
 import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.KeyController;
+import com.puebla.TiledGame.model.Enemy;
 import com.puebla.TiledGame.model.Player;
 import com.puebla.TiledGame.tileMap.TileMap;
 
@@ -15,6 +16,7 @@ public class PlayState implements GameState{
     private TileMap tileMap;
     private Game game;
     private Player player;
+    private Enemy enemy;
 
     public PlayState(Game game, TileMap tileMap) {
         this.game = game;
@@ -22,18 +24,23 @@ public class PlayState implements GameState{
         this.player = new Player(game, tileMap);
         this.player.setX(50);
         this.player.setY(50);
+        this.enemy = new Enemy(game, tileMap, player);
+        this.enemy.setX(80);
+        this.enemy.setY(80);
     }
 
     @Override
     public void update() {
         handleInput();
         player.update();
+        enemy.update();
     }
 
     @Override
     public void draw(Graphics graphics) {
         tileMap.draw(graphics);
         player.draw(graphics);
+        enemy.draw(graphics);
     }
 
     @Override

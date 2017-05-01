@@ -19,6 +19,10 @@ public class Enemy implements Entity{
     private int width;
     private int height;
 
+    private double moveSpeed;
+    private double maxSpeed;
+    private double stoppingSpeed;
+
     private Game game;
     private TileMap tileMap;
     private Player playerToSeek;
@@ -29,6 +33,9 @@ public class Enemy implements Entity{
         this.playerToSeek = playerToSeek;
         this.width = 24;
         this.height = 24;
+        this.moveSpeed = 0.4;
+        this.maxSpeed = 2.5;
+        this.stoppingSpeed = 0.4;
     }
 
     @Override
@@ -48,5 +55,21 @@ public class Enemy implements Entity{
                 ((int)(tileY + ( y - ( height >>> 1 ) ))),
                 width,
                 height);
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 }
