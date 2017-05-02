@@ -2,6 +2,7 @@ package com.puebla.TiledGame.model;
 
 import com.puebla.TiledGame.gameStates.GameOverState;
 import com.puebla.TiledGame.main.Game;
+import com.puebla.TiledGame.manager.DrawController;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import java.awt.Color;
@@ -34,6 +35,8 @@ public class Player implements Entity{
     private boolean bottomLeft;
     private boolean bottomRight;
 
+    private int counter;
+
     private TileMap tileMap;
     private Game game;
 
@@ -41,11 +44,12 @@ public class Player implements Entity{
 
         this.game = game;
         this.tileMap = tileMap;
-        width = 24;
-        height = 24;
-        moveSpeed = 0.3;
-        maxSpeed = 3.0;
-        stoppingSpeed = 0.3;
+        this.width = 24;
+        this.height = 24;
+        this.moveSpeed = 0.3;
+        this.maxSpeed = 3.0;
+        this.stoppingSpeed = 0.3;
+        this.counter = 0;
 
     }
 
@@ -84,9 +88,16 @@ public class Player implements Entity{
         this.down = down;
     }
 
-    
     public int getX() { return ((int) this.x); }
     public int getY() { return ((int) this.y); }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
 
     @Override
     public void update() {
@@ -182,6 +193,15 @@ public class Player implements Entity{
                 width,
                 height
         );
+
+        int counterXPosition = ((game.WIDTH >>> 1) + (game.WIDTH >>> 2));
+        int counterYPosition = ((game.HEIGHT >>> 1) - (game.WIDTH >>> 2));
+
+        graphics.setColor(Color.WHITE);
+        DrawController.drawTextContent(
+                graphics, String.valueOf("Points: " + counter), false, counterXPosition, counterYPosition
+        );
+
     }
 
     public void moveLeft() {
