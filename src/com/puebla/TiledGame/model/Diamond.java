@@ -3,6 +3,7 @@ package com.puebla.TiledGame.model;
 import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.tileMap.TileMap;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -35,5 +36,7 @@ public class Diamond implements Entity{
     @Override
     public void draw(Graphics graphics) {
 
+        graphics.setColor(Color.WHITE);
+        graphics.fillOval(((int)x), ((int)y), ((int)width), ((int)height));
     }
 }
