@@ -9,7 +9,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Created by federico on 13/04/17.
+ * @author federico on 13/04/17.
+ * @email fede.larregle@gmail.com
  */
 public class Player implements Entity{
 
