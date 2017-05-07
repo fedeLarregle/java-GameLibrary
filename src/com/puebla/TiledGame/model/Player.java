@@ -7,6 +7,8 @@ import com.puebla.TiledGame.tileMap.TileMap;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author federico on 13/04/17.
@@ -19,17 +21,17 @@ public class Player implements Entity{
     private double deltaX;
     private double deltaY;
 
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
 
     private boolean left;
     private boolean right;
     private boolean up;
     private boolean down;
 
-    private double moveSpeed;
-    private double maxSpeed;
-    private double stoppingSpeed;
+    private final double moveSpeed;
+    private final double maxSpeed;
+    private final double stoppingSpeed;
 
     private boolean topLeft;
     private boolean topRight;
@@ -38,13 +40,15 @@ public class Player implements Entity{
 
     private int counter;
 
-    private TileMap tileMap;
-    private Game game;
+    private final TileMap tileMap;
+    private final Game game;
+    private final List<Diamond> diamons;
 
     public Player(Game game, TileMap tileMap) {
 
         this.game = game;
         this.tileMap = tileMap;
+        this.diamons = new ArrayList<>();
         this.width = 24;
         this.height = 24;
         this.moveSpeed = 0.3;
@@ -267,6 +271,7 @@ public class Player implements Entity{
         int rightTile = tileMap.getCol((int) (x + (width >>> 1) - 1));
         int topTile = tileMap.getRow((int) (y - (height >>> 1)));
         int bottomTile = tileMap.getRow((int) (y + (height >>> 1) - 1));
+
         topLeft = tileMap.getTile(topTile, leftTile) == 0;
         topRight = tileMap.getTile(topTile, rightTile) == 0;
         bottomLeft = tileMap.getTile(bottomTile, leftTile) == 0;

@@ -14,10 +14,10 @@ public class TileMap {
     private int x;
     private int y;
 
-    private int tileSize;
+    private final int tileSize;
     private int[][] map;
-    private int mapWidth;
-    private int mapHeight;
+    private final int mapWidth;
+    private final int mapHeight;
 
     public TileMap(final int tileSize) {
 
