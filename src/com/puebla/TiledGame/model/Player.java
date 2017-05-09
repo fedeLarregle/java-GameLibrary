@@ -17,22 +17,26 @@ import java.util.List;
  */
 public class Player implements Entity, Collidable{
 
+    private final TileMap tileMap;
+    private final Game game;
+    private final List<Diamond> diamons;
+
     private double x;
     private double y;
     private double deltaX;
     private double deltaY;
 
-    private final int width;
-    private final int height;
+    private final static int WIDTH;
+    private final static int HEIGHT;
 
     private boolean left;
     private boolean right;
     private boolean up;
     private boolean down;
 
-    private final double moveSpeed;
-    private final double maxSpeed;
-    private final double stoppingSpeed;
+    private final static double MOVE_SPEED;
+    private final static double MAX_SPEED;
+    private final static double STOPPING_SPPED;
 
     private boolean topLeft;
     private boolean topRight;
@@ -41,20 +45,19 @@ public class Player implements Entity, Collidable{
 
     private int counter;
 
-    private final TileMap tileMap;
-    private final Game game;
-    private final List<Diamond> diamons;
+    static {
+        MOVE_SPEED = 0.3;
+        MAX_SPEED = 3.0;
+        STOPPING_SPPED = 0.3;
+        WIDTH = 24;
+        HEIGHT = 24;
+    }
 
     public Player(Game game, TileMap tileMap) {
 
         this.game = game;
         this.tileMap = tileMap;
         this.diamons = new ArrayList<>();
-        this.width = 24;
-        this.height = 24;
-        this.moveSpeed = 0.3;
-        this.maxSpeed = 3.0;
-        this.stoppingSpeed = 0.3;
         this.counter = 0;
 
     }
@@ -102,12 +105,12 @@ public class Player implements Entity, Collidable{
 
     @Override
     public int getWidth() {
-        return 0;
+        return WIDTH;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return HEIGHT;
     }
 
     public int getCounter() {
@@ -155,7 +158,7 @@ public class Player implements Entity, Collidable{
         if ( deltaY < 0 ) {
             if ( topLeft || topRight ) {
                 deltaY = 0;
-                tempY = currentRow * tileMap.getTileSize() + (height >>> 1);
+                tempY = currentRow * tileMap.getTileSize() + (HEIGHT >>> 1);
             } else  {
                 tempY += deltaY;
             }
@@ -164,7 +167,7 @@ public class Player implements Entity, Collidable{
         if ( deltaY > 0 ) {
             if ( bottomLeft || bottomRight ) {
                 deltaY = 0;
-                tempY = ( currentRow + 1 ) * tileMap.getTileSize() - (height >>> 1);
+                tempY = ( currentRow + 1 ) * tileMap.getTileSize() - (HEIGHT >>> 1);
             } else  {
                 tempY += deltaY;
             }
@@ -176,7 +179,7 @@ public class Player implements Entity, Collidable{
         if ( deltaX < 0 ) {
             if ( topLeft || bottomLeft ) {
                 deltaX = 0;
-                tempX = currentCol * tileMap.getTileSize() + (width >>> 1);
+                tempX = currentCol * tileMap.getTileSize() + (WIDTH >>> 1);
             } else  {
                 tempX += deltaX;
             }
@@ -185,7 +188,7 @@ public class Player implements Entity, Collidable{
         if ( deltaX > 0 ) {
             if ( topRight || bottomRight ) {
                 deltaX = 0;
-                tempX = (currentCol + 1) * tileMap.getTileSize() - (width >>> 1);
+                tempX = (currentCol + 1) * tileMap.getTileSize() - (WIDTH >>> 1);
             } else {
                 tempX += deltaX;
             }
@@ -207,10 +210,10 @@ public class Player implements Entity, Collidable{
 
         graphics.setColor(Color.BLUE);
         graphics.fillRect(
-                (int) (tileX + ( x - ( width >>> 1 ) )),
-                (int) (tileY + ( y - ( height >>> 1 ) )),
-                width,
-                height
+                (int) (tileX + ( x - ( WIDTH >>> 1 ) )),
+                (int) (tileY + ( y - ( HEIGHT >>> 1 ) )),
+                WIDTH,
+                HEIGHT
         );
 
         int counterXPosition = ((game.WIDTH >>> 1) + (game.WIDTH >>> 2));
@@ -224,56 +227,56 @@ public class Player implements Entity, Collidable{
     }
 
     public void moveLeft() {
-        deltaX -= moveSpeed;
-        if ( deltaX < -maxSpeed ) {
-            deltaX = -maxSpeed;
+        deltaX -= MOVE_SPEED;
+        if ( deltaX < -MAX_SPEED ) {
+            deltaX = -MAX_SPEED;
         }
     }
 
     public void moveRight() {
-        deltaX += moveSpeed;
-        if ( deltaX > maxSpeed ) {
-            deltaX = maxSpeed;
+        deltaX += MOVE_SPEED;
+        if ( deltaX > MAX_SPEED ) {
+            deltaX = MAX_SPEED;
         }
     }
 
     public void moveUp() {
-        deltaY -= moveSpeed;
-        if ( deltaY < -maxSpeed ) {
-            deltaY = -maxSpeed;
+        deltaY -= MOVE_SPEED;
+        if ( deltaY < -MAX_SPEED ) {
+            deltaY = -MAX_SPEED;
         }
     }
 
     public void moveDown() {
-        deltaY += moveSpeed;
-        if ( deltaY > maxSpeed ) {
-            deltaY = maxSpeed;
+        deltaY += MOVE_SPEED;
+        if ( deltaY > MAX_SPEED ) {
+            deltaY = MAX_SPEED;
         }
     }
 
     public void stoppingToLeft() {
-        deltaX -= stoppingSpeed;
+        deltaX -= STOPPING_SPPED;
         if ( deltaX < 0 ) {
             deltaX = 0;
         }
     }
 
     public void stoppingToRight() {
-        deltaX += stoppingSpeed;
+        deltaX += STOPPING_SPPED;
         if ( deltaX > 0 ) {
             deltaX = 0;
         }
     }
 
     public void stoppingToUp() {
-        deltaY -= stoppingSpeed;
+        deltaY -= STOPPING_SPPED;
         if ( deltaY < 0 ) {
             deltaY = 0;
         }
     }
 
     public void stoppingToDown() {
-        deltaY += stoppingSpeed;
+        deltaY += STOPPING_SPPED;
         if ( deltaY > 0 ) {
             deltaY = 0;
         }
@@ -281,10 +284,10 @@ public class Player implements Entity, Collidable{
 
     private void calculateCorners(double x, double y) {
 
-        int leftTile = tileMap.getCol((int) (x - (width >>> 1)));
-        int rightTile = tileMap.getCol((int) (x + (width >>> 1) - 1));
-        int topTile = tileMap.getRow((int) (y - (height >>> 1)));
-        int bottomTile = tileMap.getRow((int) (y + (height >>> 1) - 1));
+        int leftTile = tileMap.getCol((int) (x - (WIDTH >>> 1)));
+        int rightTile = tileMap.getCol((int) (x + (WIDTH >>> 1) - 1));
+        int topTile = tileMap.getRow((int) (y - (HEIGHT >>> 1)));
+        int bottomTile = tileMap.getRow((int) (y + (HEIGHT >>> 1) - 1));
 
         topLeft = tileMap.getTile(topTile, leftTile) == 0;
         topRight = tileMap.getTile(topTile, rightTile) == 0;

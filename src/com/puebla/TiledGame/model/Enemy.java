@@ -13,69 +13,72 @@ import java.awt.Graphics;
  */
 public class Enemy implements Entity, Collidable{
 
+    private Game game;
+    private TileMap tileMap;
+    private Player playerToSeek;
+
     private double x;
     private double y;
     private double deltaX;
     private double deltaY;
 
-    private int width;
-    private int height;
+    private final static int WIDTH;
+    private final static int HEIGHT;
 
-    private double moveSpeed;
-    private double maxSpeed;
-    private double stoppingSpeed;
+    private final static double MOVE_SPEED;
+    private final static double MAX_SPEED;
+    private final static double STOPPING_SPPED;
 
-    private Game game;
-    private TileMap tileMap;
-    private Player playerToSeek;
+    static {
+        MOVE_SPEED = 0.15;
+        MAX_SPEED = 2.5;
+        STOPPING_SPPED = 0.4;
+        WIDTH = 24;
+        HEIGHT = 24;
+    }
 
     public Enemy(Game game, TileMap tileMap, Player playerToSeek) {
         this.game = game;
         this.tileMap = tileMap;
         this.playerToSeek = playerToSeek;
-        this.width = 24;
-        this.height = 24;
-        this.moveSpeed = 0.15;
-        this.maxSpeed = 2.5;
-        this.stoppingSpeed = 0.4;
     }
 
     public void moveRight() {
-        deltaX += moveSpeed;
-        if ( deltaX > maxSpeed ) {
-            deltaX = maxSpeed;
+        deltaX += MOVE_SPEED;
+        if ( deltaX > MAX_SPEED ) {
+            deltaX = MAX_SPEED;
         }
         this.x += deltaX;
     }
 
     public void moveLeft() {
-        deltaX -= moveSpeed;
-        if ( deltaX < -maxSpeed ) {
-            deltaX = -maxSpeed;
+        deltaX -= MOVE_SPEED;
+        if ( deltaX < -MAX_SPEED ) {
+            deltaX = -MAX_SPEED;
         }
         this.x += deltaX;
     }
 
     public void moveUp() {
 
-        deltaY -= moveSpeed;
-        if ( deltaY < -maxSpeed ) {
-            deltaY = -maxSpeed;
+        deltaY -= MOVE_SPEED;
+        if ( deltaY < -MAX_SPEED ) {
+            deltaY = -MAX_SPEED;
         }
         this.y += deltaY;
     }
 
     public void moveDown() {
 
-        deltaY += moveSpeed;
-        if ( deltaY > maxSpeed ) {
-            deltaY = maxSpeed;
+        deltaY += MOVE_SPEED;
+        if ( deltaY > MAX_SPEED ) {
+            deltaY = MAX_SPEED;
         }
         this.y += deltaY;
     }
 
     public void stoppingToLeft() {
-        deltaX -= stoppingSpeed;
+        deltaX -= STOPPING_SPPED;
         if ( deltaX < 0 ) {
             deltaX = 0;
         }
@@ -83,7 +86,7 @@ public class Enemy implements Entity, Collidable{
     }
 
     public void stoppingToRight() {
-        deltaX += stoppingSpeed;
+        deltaX += STOPPING_SPPED;
         if ( deltaX > 0 ) {
             deltaX = 0;
         }
@@ -91,7 +94,7 @@ public class Enemy implements Entity, Collidable{
     }
 
     public void stoppingToUp() {
-        deltaY -= stoppingSpeed;
+        deltaY -= STOPPING_SPPED;
         if ( deltaY < 0 ) {
             deltaY = 0;
         }
@@ -99,7 +102,7 @@ public class Enemy implements Entity, Collidable{
     }
 
     public void stoppingToDown() {
-        deltaY += stoppingSpeed;
+        deltaY += STOPPING_SPPED;
         if ( deltaY > 0 ) {
             deltaY = 0;
         }
@@ -141,10 +144,10 @@ public class Enemy implements Entity, Collidable{
 
         graphics.setColor(new Color(178,34,34));
         graphics.fillRect(
-                ((int)(tileX + ( x - ( width >>> 1 ) ))),
-                ((int)(tileY + ( y - ( height >>> 1 ) ))),
-                width,
-                height);
+                ((int)(tileX + ( x - ( WIDTH >>> 1 ) ))),
+                ((int)(tileY + ( y - ( HEIGHT >>> 1 ) ))),
+                WIDTH,
+                HEIGHT);
     }
 
     @Override
@@ -159,12 +162,12 @@ public class Enemy implements Entity, Collidable{
 
     @Override
     public int getWidth() {
-        return this.width;
+        return WIDTH;
     }
 
     @Override
     public int getHeight() {
-        return this.height;
+        return HEIGHT;
     }
 
     public void setX(double x) {
