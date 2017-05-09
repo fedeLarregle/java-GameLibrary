@@ -1,7 +1,7 @@
 package com.puebla.TiledGame.model;
 
-import com.puebla.TiledGame.gameStates.GameOverState;
 import com.puebla.TiledGame.main.Game;
+import com.puebla.TiledGame.manager.Collidable;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import java.awt.Color;
@@ -11,7 +11,7 @@ import java.awt.Graphics;
  * @author federico on 29/04/17.
  * @email fede.larregle@gmail.com
  */
-public class Enemy implements Entity{
+public class Enemy implements Entity, Collidable{
 
     private double x;
     private double y;
@@ -109,12 +109,6 @@ public class Enemy implements Entity{
     @Override
     public void update() {
 
-        /* Checking for player enemy collision */
-        if (  ((this.getX() - playerToSeek.getX()) >= 0 && ((this.getX() - playerToSeek.getX()) < width)) &&
-        ((this.getY() - playerToSeek.getY()) >= 0 && ((this.getY() - playerToSeek.getY()) < height)) ) {
-            game.setGameState(new GameOverState(game));
-        }
-
         if ( ((this.playerToSeek.getX() - this.getX()) > 0) ) {
             this.moveRight();
         } else if ( ((this.playerToSeek.getX() - this.getX()) < 0) ) {
@@ -153,16 +147,28 @@ public class Enemy implements Entity{
                 height);
     }
 
-    public double getX() {
-        return x;
+    @Override
+    public int getX() {
+        return ((int)x);
+    }
+
+    @Override
+    public int getY() {
+        return ((int)y);
+    }
+
+    @Override
+    public int getWidth() {
+        return this.width;
+    }
+
+    @Override
+    public int getHeight() {
+        return this.height;
     }
 
     public void setX(double x) {
         this.x = x;
-    }
-
-    public double getY() {
-        return y;
     }
 
     public void setY(double y) {

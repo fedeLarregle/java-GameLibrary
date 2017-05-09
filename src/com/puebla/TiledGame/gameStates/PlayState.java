@@ -1,6 +1,7 @@
 package com.puebla.TiledGame.gameStates;
 
 import com.puebla.TiledGame.main.Game;
+import com.puebla.TiledGame.manager.Collisions;
 import com.puebla.TiledGame.manager.KeyController;
 import com.puebla.TiledGame.model.Enemy;
 import com.puebla.TiledGame.model.Player;
@@ -9,7 +10,8 @@ import com.puebla.TiledGame.tileMap.TileMap;
 import java.awt.Graphics;
 
 /**
- * Created by federico on 12/04/17.
+ * @author federico on 12/04/17.
+ * @email fede.larregle@gmail.com
  */
 public class PlayState implements GameState{
 
@@ -17,6 +19,11 @@ public class PlayState implements GameState{
     private Game game;
     private Player player;
     private Enemy enemy;
+    private static final Collisions collisions;
+
+    static {
+        collisions = Collisions.getInstance();
+    }
 
     public PlayState(Game game, TileMap tileMap) {
         this.game = game;
@@ -34,6 +41,9 @@ public class PlayState implements GameState{
         handleInput();
         player.update();
         enemy.update();
+        if ( collisions.checkRectangleCollision(player, enemy) ) {
+            game.setGameState(new GameOverState(game));
+        }
     }
 
     @Override

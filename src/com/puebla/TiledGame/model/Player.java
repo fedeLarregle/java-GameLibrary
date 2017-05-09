@@ -2,6 +2,7 @@ package com.puebla.TiledGame.model;
 
 import com.puebla.TiledGame.gameStates.GameOverState;
 import com.puebla.TiledGame.main.Game;
+import com.puebla.TiledGame.manager.Collidable;
 import com.puebla.TiledGame.manager.DrawController;
 import com.puebla.TiledGame.tileMap.TileMap;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * @author federico on 13/04/17.
  * @email fede.larregle@gmail.com
  */
-public class Player implements Entity{
+public class Player implements Entity, Collidable{
 
     private double x;
     private double y;
@@ -93,8 +94,21 @@ public class Player implements Entity{
         this.down = down;
     }
 
+    @Override
     public int getX() { return ((int) this.x); }
+
+    @Override
     public int getY() { return ((int) this.y); }
+
+    @Override
+    public int getWidth() {
+        return 0;
+    }
+
+    @Override
+    public int getHeight() {
+        return 0;
+    }
 
     public int getCounter() {
         return counter;

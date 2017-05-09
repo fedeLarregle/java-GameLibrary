@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6944def6-e5c8-4341-9545-8ff6ed290a2a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collidable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collisions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collidable.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collidable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collisions.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collisions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java" />
     </list>
     <ignored path="tileGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,6 +28,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="PlayState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="44" column="52" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="map" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/map/map">
           <provider selected="true" editor-type-id="text-editor">
@@ -46,14 +58,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Collisions.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Collisions.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collisions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+            <state relative-caret-position="513">
+              <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
-                <element signature="e#509#510#0" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
+                <element signature="e#516#517#0" expanded="true" />
+                <element signature="e#547#548#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,18 +74,8 @@
       <file leaf-file-name="Collidable.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collidable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/KeyController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+            <state relative-caret-position="165">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -82,11 +84,13 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3675">
-              <caret line="273" column="0" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
+            <state relative-caret-position="-240">
+              <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
               <folding>
-                <element signature="e#2210#2211#0" expanded="true" />
-                <element signature="e#2248#2249#0" expanded="true" />
+                <element signature="e#2238#2239#0" expanded="true" />
+                <element signature="e#2262#2263#0" expanded="true" />
+                <element signature="e#2306#2307#0" expanded="true" />
+                <element signature="e#2330#2331#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,13 +108,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+            <state relative-caret-position="-2064">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3641#3642#0" expanded="true" />
+                <element signature="e#3674#3675#0" expanded="true" />
+                <element signature="e#3718#3719#0" expanded="true" />
+                <element signature="e#3752#3753#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -170,14 +178,14 @@
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/MenuState.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PauseState.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Entity.java" />
-        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" />
-        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Diamond.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/tileMap/TileMap.java" />
-        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java" />
         <option value="$PROJECT_DIR$/resources/map/map" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collidable.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collisions.java" />
+        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java" />
+        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" />
+        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java" />
       </list>
     </option>
   </component>
@@ -661,11 +669,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11111111" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -674,15 +684,13 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39814815" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11111111" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24899599" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39814815" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -983,14 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/DrawController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1016,33 +1016,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Diamond.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3675">
-          <caret line="273" column="0" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
-          <folding>
-            <element signature="e#2210#2211#0" expanded="true" />
-            <element signature="e#2248#2249#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1076,19 +1055,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collidable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="165">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collisions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        <state relative-caret-position="513">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
-            <element signature="e#509#510#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240">
+          <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+          <folding>
+            <element signature="e#2238#2239#0" expanded="true" />
+            <element signature="e#2262#2263#0" expanded="true" />
+            <element signature="e#2306#2307#0" expanded="true" />
+            <element signature="e#2330#2331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="44" column="52" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2064">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3641#3642#0" expanded="true" />
+            <element signature="e#3674#3675#0" expanded="true" />
+            <element signature="e#3718#3719#0" expanded="true" />
+            <element signature="e#3752#3753#0" expanded="true" />
           </folding>
         </state>
       </provider>
