@@ -8,16 +8,21 @@ import com.puebla.TiledGame.tileMap.TileMap;
 import java.awt.Graphics;
 
 /**
- * Created by federico on 12/04/17.
+ * @author federico on 12/04/17.
+ * @email fede.larregle@gmail.com
  */
 public class GameOverState implements GameState {
 
-    private Game game;
+    private final Game game;
     private int currentOption;
-    private String[] options = {
-            "QUIT",
-            "NEW GAME"
-    };
+    private final static String[] OPTIONS;
+
+    static {
+        OPTIONS = new String[]{
+                "QUIT",
+                "NEW GAME"
+        };
+    }
 
     public GameOverState(Game game) {
         this.game = game;
@@ -36,12 +41,12 @@ public class GameOverState implements GameState {
         int x = (game.WIDTH) >>> 1;
         int y = (game.HEIGHT - 50) >>> 1;
 
-        for (int i = 0; i < options.length; i++) {
+        for (int i = 0; i < OPTIONS.length; i++) {
 
             if ( i == getCurrentOption() ) {
-                DrawController.drawTextContent(graphics, options[i], true, x, y);
+                DrawController.drawTextContent(graphics, OPTIONS[i], true, x, y);
             } else {
-                DrawController.drawTextContent(graphics, options[i], false, x, y);
+                DrawController.drawTextContent(graphics, OPTIONS[i], false, x, y);
             }
 
             x = (game.WIDTH) >>> 1;
@@ -52,7 +57,7 @@ public class GameOverState implements GameState {
     @Override
     public void handleInput() {
         if ( KeyController.isPressed(KeyController.DOWN) &&
-                currentOption < (options.length - 1) ) {
+                currentOption < (OPTIONS.length - 1) ) {
             currentOption++;
         }
         if ( KeyController.isPressed(KeyController.UP) &&

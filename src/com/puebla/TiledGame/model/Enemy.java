@@ -30,8 +30,8 @@ public class Enemy implements Entity, Collidable{
     private final static double STOPPING_SPPED;
 
     static {
-        MOVE_SPEED = 0.15;
-        MAX_SPEED = 2.5;
+        MOVE_SPEED = 0.10;
+        MAX_SPEED = 2.0;
         STOPPING_SPPED = 0.4;
         WIDTH = 24;
         HEIGHT = 24;

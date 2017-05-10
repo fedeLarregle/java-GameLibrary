@@ -15,10 +15,10 @@ import java.awt.Graphics;
  */
 public class PlayState implements GameState{
 
-    private TileMap tileMap;
-    private Game game;
-    private Player player;
-    private Enemy enemy;
+    private final TileMap tileMap;
+    private final Game game;
+    private final Player player;
+    private final Enemy enemy;
     private static final Collisions collisions;
 
     static {

@@ -21,20 +21,27 @@ import java.awt.image.BufferedImage;
  */
 public class Game extends Canvas implements Runnable, KeyListener {
 
-    public static final int WIDTH = 480;
-    public static final int HEIGHT = 480;
+    public static final int WIDTH;
+    public static final int HEIGHT;
+
+    public final static int FRAMES_PER_SECOND;
+    public final static long TIME_PER_FRAME;
 
     private Thread thread;
     public boolean isRunning;
-
-    public final int FRAMES_PER_SECOND = 30;
-    public final long TIME_PER_FRAME = 1_000 / FRAMES_PER_SECOND;
 
     private JFrame frame;
     private BufferedImage image;
 
     private GameState gameState;
     private TileMap tileMap;
+
+    static {
+        WIDTH = 480;
+        HEIGHT = 480;
+        FRAMES_PER_SECOND = 30;
+        TIME_PER_FRAME = 1_000 / FRAMES_PER_SECOND;
+    }
 
 
     public Game() {

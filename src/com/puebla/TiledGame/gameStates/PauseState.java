@@ -7,17 +7,22 @@ import com.puebla.TiledGame.manager.KeyController;
 import java.awt.Graphics;
 
 /**
- * Created by federico on 12/04/17.
+ * @author federico on 12/04/17.
+ * @email fede.larregle@gmail.com
  */
 public class PauseState implements GameState {
 
-    private Game game;
+    private final Game game;
     private PlayState previousPlayState;
-    private String[] pauseContent = {
-            "PAUSED",
-            "ARROWS TO MOVE",
-            "ESCAPE TO RETURN"
-    };
+    private final static String[] PAUSE_CONTENT;
+
+    static {
+        PAUSE_CONTENT = new String[]{
+                "PAUSED",
+                "ARROWS TO MOVE",
+                "ESCAPE TO RETURN"
+        };
+    }
 
     public PauseState(Game game, PlayState playState) {
         this.game = game;
@@ -37,9 +42,9 @@ public class PauseState implements GameState {
         int x = (game.WIDTH) >>> 1;
         int y = (game.HEIGHT - 50) >>> 1;
 
-        for (int i = 0; i < pauseContent.length; i++) {
+        for (int i = 0; i < PAUSE_CONTENT.length; i++) {
 
-            DrawController.drawTextContent(graphics, pauseContent[i], false, x, y);
+            DrawController.drawTextContent(graphics, PAUSE_CONTENT[i], false, x, y);
 
             x = (game.WIDTH) >>> 1;
             y += 50;
