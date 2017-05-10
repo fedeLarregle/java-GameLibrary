@@ -1,7 +1,7 @@
 package com.puebla.TiledGame.model;
 
 import com.puebla.TiledGame.main.Game;
-import com.puebla.TiledGame.manager.Collidable;
+import com.puebla.TiledGame.manager.CollidableCircle;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import java.awt.Color;
@@ -11,7 +11,7 @@ import java.awt.Graphics;
  * @author federico on 06/05/17.
  * @email fede.larregle@gmail.com
  */
-public class Diamond implements Entity, Collidable{
+public class Diamond implements Entity, CollidableCircle {
 
     private Game game;
     private TileMap tileMap;
@@ -21,11 +21,13 @@ public class Diamond implements Entity, Collidable{
 
     private final static double WIDTH;
     private final static double HEIGHT;
+    private final static double RADIUS;
 
 
     static {
         WIDTH = 32;
         HEIGHT = 32;
+        RADIUS = 32;
     }
 
     public Diamond(Game game, TileMap tileMap) {
@@ -57,12 +59,8 @@ public class Diamond implements Entity, Collidable{
     }
 
     @Override
-    public int getWidth() {
-        return ((int)WIDTH);
+    public int getR() {
+        return ((int)RADIUS);
     }
 
-    @Override
-    public int getHeight() {
-        return ((int)HEIGHT);
-    }
 }

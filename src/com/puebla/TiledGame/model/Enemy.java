@@ -1,7 +1,7 @@
 package com.puebla.TiledGame.model;
 
 import com.puebla.TiledGame.main.Game;
-import com.puebla.TiledGame.manager.Collidable;
+import com.puebla.TiledGame.manager.CollidableRectangle;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import java.awt.Color;
@@ -11,7 +11,7 @@ import java.awt.Graphics;
  * @author federico on 29/04/17.
  * @email fede.larregle@gmail.com
  */
-public class Enemy implements Entity, Collidable{
+public class Enemy implements Entity, CollidableRectangle {
 
     private Game game;
     private TileMap tileMap;

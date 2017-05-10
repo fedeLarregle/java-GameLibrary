@@ -2,7 +2,7 @@ package com.puebla.TiledGame.manager;
 
 /**
  * Singleton class in charge of checking for collisions between
- * 'Collidable' Objects {@link Collidable}
+ * 'CollidableRectangle' Objects {@link CollidableRectangle}
  * @author federico on 08/05/17.
  * @email fede.larregle@gmail.com
  */
@@ -23,22 +23,39 @@ public class Collisions {
     }
 
     /**
-     * Simple collision check method
+     * Simple collision detection method for two rectangle figures
      * Returns a boolean value representing if the two rectangles are colliding or not
-     * @param collidable1
-     * @param collidable2
+     * @param rectangle1
+     * @param rectangle2
      * @param <C>
      * @return boolean
      */
-    public <C extends Collidable> boolean checkRectangleCollision(C collidable1, C collidable2) {
+    public <C extends CollidableRectangle> boolean checkRectangleCollision(C rectangle1, C rectangle2) {
         boolean areColliding = false;
-        if ( ( (collidable1.getX() >= collidable2.getX()) &&
-                (collidable1.getX() <= collidable2.getX() + collidable2.getWidth()) ) &&
-             ( (collidable1.getY() >= collidable2.getY()) &&
-                (collidable1.getY() <= collidable2.getY() + collidable2.getHeight()) )
+        if ( ( (rectangle1.getX() >= rectangle2.getX()) &&
+                (rectangle1.getX() <= rectangle2.getX() + rectangle2.getWidth()) ) &&
+             ( (rectangle1.getY() >= rectangle2.getY()) &&
+                (rectangle1.getY() <= rectangle2.getY() + rectangle2.getHeight()) )
             ) {
             areColliding = true;
         }
         return areColliding;
+    }
+
+    /**
+     * Simple collision detection method for two circle figures
+     * Returns a boolean value representing if the two circles are colliding or not
+     * @param circle1
+     * @param circle2
+     * @param <C>
+     * @return boolean
+     */
+    public <C extends CollidableCircle> boolean checkCircleCollision(C circle1, C circle2) {
+
+        int xDif = circle1.getX() - circle2.getX();
+        int yDif = circle1.getY() - circle2.getY();
+        int squaredDistance = ( xDif * xDif ) + ( yDif * yDif );
+
+        return ( squaredDistance < (circle1.getR() + circle2.getR()) * (circle1.getR() + circle2.getR()) );
     }
 }

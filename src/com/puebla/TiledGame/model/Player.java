@@ -2,7 +2,7 @@ package com.puebla.TiledGame.model;
 
 import com.puebla.TiledGame.gameStates.GameOverState;
 import com.puebla.TiledGame.main.Game;
-import com.puebla.TiledGame.manager.Collidable;
+import com.puebla.TiledGame.manager.CollidableRectangle;
 import com.puebla.TiledGame.manager.DrawController;
 import com.puebla.TiledGame.tileMap.TileMap;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @author federico on 13/04/17.
  * @email fede.larregle@gmail.com
  */
-public class Player implements Entity, Collidable{
+public class Player implements Entity, CollidableRectangle {
 
     private final TileMap tileMap;
     private final Game game;
