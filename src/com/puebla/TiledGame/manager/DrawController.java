@@ -1,14 +1,12 @@
 package com.puebla.TiledGame.manager;
 
-import com.puebla.TiledGame.gameStates.MenuState;
-import com.puebla.TiledGame.main.Game;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
 /**
- * Created by federico on 12/04/17.
+ * @author federico on 12/04/17.
+ * @email fede.larregle@gmail.com
  */
 public class DrawController {
 

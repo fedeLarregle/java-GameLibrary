@@ -7,7 +7,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Created by federico on 12/04/17.
+ * @author federico on 12/04/17.
+ * @email fede.larregle@gmail.com
  */
 public class TileMap {
 

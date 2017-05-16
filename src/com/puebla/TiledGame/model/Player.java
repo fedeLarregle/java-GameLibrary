@@ -43,6 +43,8 @@ public class Player implements Entity, CollidableRectangle {
     private boolean bottomLeft;
     private boolean bottomRight;
 
+    private int health;
+
     private int counter;
 
     static {
@@ -59,6 +61,7 @@ public class Player implements Entity, CollidableRectangle {
         this.tileMap = tileMap;
         this.diamons = new ArrayList<>();
         this.counter = 0;
+        this.health = 50;
 
     }
 
@@ -120,6 +123,10 @@ public class Player implements Entity, CollidableRectangle {
     public void setCounter(int counter) {
         this.counter = counter;
     }
+
+    public void gotHit() { this.health--; }
+
+    public boolean isDead() { return ( this.health == 0 ); }
 
     @Override
     public void update() {
@@ -217,12 +224,21 @@ public class Player implements Entity, CollidableRectangle {
         );
 
         int counterXPosition = ((game.WIDTH >>> 1) + (game.WIDTH >>> 2));
-        int counterYPosition = ((game.HEIGHT >>> 1) - (game.WIDTH >>> 2));
+        int counterYPosition = ((game.HEIGHT >>> 1) - (game.WIDTH >>> 2) - (game.WIDTH >>> 3) );
 
         graphics.setColor(Color.WHITE);
+
+        DrawController.drawTextContent(
+                graphics, String.valueOf("Health: " + health), false, counterXPosition, counterYPosition
+        );
+
+        counterYPosition += (game.WIDTH >>> 3);
+
         DrawController.drawTextContent(
                 graphics, String.valueOf("Points: " + counter), false, counterXPosition, counterYPosition
         );
+
+
 
     }
 

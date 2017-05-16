@@ -42,7 +42,10 @@ public class PlayState implements GameState{
         player.update();
         enemy.update();
         if ( collisions.checkRectangleCollision(player, enemy) ) {
-            game.setGameState(new GameOverState(game));
+            player.gotHit();
+            if ( player.isDead() ) {
+                game.setGameState(new GameOverState(game));
+            }
         }
     }
 

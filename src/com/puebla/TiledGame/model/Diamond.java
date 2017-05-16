@@ -27,7 +27,7 @@ public class Diamond implements Entity, CollidableCircle {
     static {
         WIDTH = 32;
         HEIGHT = 32;
-        RADIUS = 32;
+        RADIUS = 16;
     }
 
     public Diamond(Game game, TileMap tileMap) {
