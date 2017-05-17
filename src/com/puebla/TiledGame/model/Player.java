@@ -3,6 +3,7 @@ package com.puebla.TiledGame.model;
 import com.puebla.TiledGame.gameStates.GameOverState;
 import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.CollidableRectangle;
+import com.puebla.TiledGame.manager.Collisions;
 import com.puebla.TiledGame.manager.DrawController;
 import com.puebla.TiledGame.tileMap.TileMap;
 
@@ -160,7 +161,10 @@ public class Player implements Entity, CollidableRectangle {
         double tempY = y;
 
         /* Calculate if there's any corner if you move up or down */
-        calculateCorners(x, toY);
+        topLeft = Collisions.getInstance().checkTopLeftCorners(tileMap, ((int)x), ((int)toY), this);
+        topRight = Collisions.getInstance().checkTopRightCorners(tileMap, ((int)x), ((int)toY), this);
+        Collisions.getInstance().checkDeathWallCollision(tileMap, game, ((int)x), ((int)toY), this);
+
         /* First checking if you move up */
         if ( deltaY < 0 ) {
             if ( topLeft || topRight ) {
@@ -171,6 +175,9 @@ public class Player implements Entity, CollidableRectangle {
             }
         }
         /* Then we check for moving down */
+        bottomLeft = Collisions.getInstance().checkBottomLeftCorners(tileMap, ((int)x), ((int)toY), this);
+        bottomRight = Collisions.getInstance().checkBottomRightCorners(tileMap, ((int)x), ((int)toY), this);
+
         if ( deltaY > 0 ) {
             if ( bottomLeft || bottomRight ) {
                 deltaY = 0;
@@ -181,7 +188,9 @@ public class Player implements Entity, CollidableRectangle {
         }
 
         /* Now we calculate if there's any corner when moving to the left or to the right */
-        calculateCorners(toX, y);
+        topLeft = Collisions.getInstance().checkBottomLeftCorners(tileMap, ((int)toX), ((int)y), this);
+        bottomLeft = Collisions.getInstance().checkBottomRightCorners(tileMap, ((int)toX), ((int)y), this);
+        Collisions.getInstance().checkDeathWallCollision(tileMap, game, ((int)toX), ((int)y), this);
         /* First moving to the left */
         if ( deltaX < 0 ) {
             if ( topLeft || bottomLeft ) {
@@ -191,6 +200,9 @@ public class Player implements Entity, CollidableRectangle {
                 tempX += deltaX;
             }
         }
+
+        topRight = Collisions.getInstance().checkBottomRightCorners(tileMap, ((int)toX), ((int)y), this);
+        bottomRight = Collisions.getInstance().checkTopRightCorners(tileMap, ((int)toX), ((int)y), this);
         /* Now moving to the right */
         if ( deltaX > 0 ) {
             if ( topRight || bottomRight ) {
@@ -298,22 +310,4 @@ public class Player implements Entity, CollidableRectangle {
         }
     }
 
-    private void calculateCorners(double x, double y) {
-
-        int leftTile = tileMap.getCol((int) (x - (WIDTH >>> 1)));
-        int rightTile = tileMap.getCol((int) (x + (WIDTH >>> 1) - 1));
-        int topTile = tileMap.getRow((int) (y - (HEIGHT >>> 1)));
-        int bottomTile = tileMap.getRow((int) (y + (HEIGHT >>> 1) - 1));
-
-        topLeft = tileMap.getTile(topTile, leftTile) == 0;
-        topRight = tileMap.getTile(topTile, rightTile) == 0;
-        bottomLeft = tileMap.getTile(bottomTile, leftTile) == 0;
-        bottomRight = tileMap.getTile(bottomTile, rightTile) == 0;
-
-        if (tileMap.getTile(topTile, leftTile) == 3 || tileMap.getTile(topTile, rightTile) == 3 ||
-                tileMap.getTile(bottomTile, leftTile) == 3 || tileMap.getTile(bottomTile, rightTile) == 3) {
-            game.setGameState(new GameOverState(game));
-        }
-
-    }
 }
