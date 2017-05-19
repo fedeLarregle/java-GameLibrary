@@ -217,8 +217,8 @@ public class Player implements Entity, CollidableRectangle {
         y  = tempY;
 
         /* Move the map in order for the player to be always on the center of the window */
-        tileMap.setX((int) ((Game.WIDTH >>> 1) - x));
-        tileMap.setY((int) ((Game.HEIGHT >>> 1) - y));
+        //tileMap.setX((int) ((Game.WIDTH >>> 1) - x));
+        //tileMap.setY((int) ((Game.HEIGHT >>> 1) - y));
     }
 
     @Override

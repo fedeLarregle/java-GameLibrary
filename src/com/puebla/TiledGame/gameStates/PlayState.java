@@ -3,6 +3,7 @@ package com.puebla.TiledGame.gameStates;
 import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.Collisions;
 import com.puebla.TiledGame.manager.KeyController;
+import com.puebla.TiledGame.model.Camara;
 import com.puebla.TiledGame.model.Enemy;
 import com.puebla.TiledGame.model.Player;
 import com.puebla.TiledGame.tileMap.TileMap;
@@ -19,6 +20,7 @@ public class PlayState implements GameState{
     private final Game game;
     private final Player player;
     private final Enemy enemy;
+    private final Camara camara;
     private static final Collisions collisions;
 
     static {
@@ -29,6 +31,7 @@ public class PlayState implements GameState{
         this.game = game;
         this.tileMap = tileMap;
         this.player = new Player(game, tileMap);
+        this.camara = new Camara(game, tileMap);
         this.player.setX(50);
         this.player.setY(50);
         this.enemy = new Enemy(game, tileMap, player);
@@ -40,6 +43,7 @@ public class PlayState implements GameState{
     public void update() {
         handleInput();
         player.update();
+        camara.move(player, Camara.Mode.SCREEN);
         enemy.update();
         if ( collisions.checkRectangleCollision(player, enemy) ) {
             player.gotHit();
@@ -47,6 +51,7 @@ public class PlayState implements GameState{
                 game.setGameState(new GameOverState(game));
             }
         }
+
     }
 
     @Override
