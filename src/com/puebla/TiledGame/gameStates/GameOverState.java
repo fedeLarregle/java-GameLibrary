@@ -74,7 +74,7 @@ public class GameOverState implements GameState {
             System.exit(0);
         }
         if ( currentOption == 1 ) {
-            game.setGameState(new PlayState(game, new TileMap(32)));
+            game.setGameState(new PlayState(game));
         }
     }
 

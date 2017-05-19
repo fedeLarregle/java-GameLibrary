@@ -4,6 +4,7 @@ import com.puebla.TiledGame.gameStates.GameState;
 import com.puebla.TiledGame.gameStates.MenuState;
 import com.puebla.TiledGame.manager.GameLogic;
 import com.puebla.TiledGame.manager.KeyController;
+import com.puebla.TiledGame.model.Camara;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import javax.swing.JFrame;
@@ -35,6 +36,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     private GameState gameState;
     private TileMap tileMap;
+    private Camara camara;
 
     static {
         WIDTH = 480;
@@ -53,6 +55,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
         frame = new JFrame();
         gameState = new MenuState(this);
+        tileMap = new TileMap(32);
+        camara = new Camara(this, tileMap, Camara.Mode.FOLLOW);
         addKeyListener(this);
     }
 
@@ -122,6 +126,10 @@ public class Game extends Canvas implements Runnable, KeyListener {
     public void setGameState(GameState gameState) {
         this.gameState = gameState;
     }
+
+    public Camara getCamara() { return this.camara; }
+
+    public TileMap getTileMap() { return this.tileMap; }
 
     public static void main (String... args) {
 

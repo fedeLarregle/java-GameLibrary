@@ -18,8 +18,9 @@ public class Camara {
     private boolean movingRight;
     private boolean movingUp;
     private boolean movingDown;
+    private Mode mode;
 
-    public Camara(Game game, TileMap tileMap) {
+    public Camara(Game game, TileMap tileMap, Mode mode) {
         this.game = game;
         this.tileMap = tileMap;
         this.x = tileMap.getX();
@@ -28,9 +29,10 @@ public class Camara {
         this.movingLeft = false;
         this.movingRight = false;
         this.movingUp = false;
+        this.mode = mode;
     }
 
-    public void move(Player player, Mode mode) {
+    public void move(Player player) {
 
         switch ( mode ) {
             /* The Camara will keep the player in the middle of the scene */
@@ -130,6 +132,12 @@ public class Camara {
     public void setMovingDown(boolean movingDown) {
         this.movingDown = movingDown;
     }
+
+    public Mode getMode() {
+        return this.mode;
+    }
+
+    public void setMode(Mode mode) { this.mode = mode; }
 
     public enum Mode {
         FOLLOW, SCREEN, MANUAL

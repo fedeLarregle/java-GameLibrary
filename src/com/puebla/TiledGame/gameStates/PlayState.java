@@ -27,11 +27,11 @@ public class PlayState implements GameState{
         collisions = Collisions.getInstance();
     }
 
-    public PlayState(Game game, TileMap tileMap) {
+    public PlayState(Game game) {
         this.game = game;
-        this.tileMap = tileMap;
+        this.tileMap = game.getTileMap();
         this.player = new Player(game, tileMap);
-        this.camara = new Camara(game, tileMap);
+        this.camara = game.getCamara();
         this.player.setX(50);
         this.player.setY(50);
         this.enemy = new Enemy(game, tileMap, player);
@@ -43,7 +43,7 @@ public class PlayState implements GameState{
     public void update() {
         handleInput();
         player.update();
-        camara.move(player, Camara.Mode.MANUAL);
+        camara.move(player);
         //enemy.update();
         if ( collisions.checkRectangleCollision(player, enemy) ) {
             player.gotHit();

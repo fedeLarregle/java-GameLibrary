@@ -3,40 +3,40 @@ package com.puebla.TiledGame.gameStates;
 import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.DrawController;
 import com.puebla.TiledGame.manager.KeyController;
-import com.puebla.TiledGame.tileMap.TileMap;
+import com.puebla.TiledGame.model.Camara;
 
 import java.awt.Graphics;
 
 /**
- * @author federico on 12/04/17.
+ * @author federico on 18/05/17.
  * @email fede.larregle@gmail.com
  */
-public class MenuState implements GameState {
+public class OptionsMenuState implements GameState{
 
+    private final static String[] OPTIONS;
     private final Game game;
     private int currentOption;
-    private final static String[] OPTIONS;
 
     private boolean movingUp;
     private boolean movingDown;
     private boolean selectingOption;
 
     static {
-        OPTIONS = new String[]{
-                "START",
-                "CAMARA OPTIONS",
-                "QUIT"
+        OPTIONS = new String[] {
+                "FOLLOW PLAYER",
+                "SCENE BY SCENE",
+                "MANUAL"
+
         };
     }
 
-    public MenuState(Game game) {
+    public OptionsMenuState(Game game) {
         this.game = game;
         this.currentOption = 0;
         this.movingDown = false;
         this.movingUp = false;
         this.selectingOption = false;
     }
-
 
     @Override
     public void update() {
@@ -48,7 +48,6 @@ public class MenuState implements GameState {
 
     @Override
     public void draw(Graphics graphics) {
-
         /* Setting the initial x and y position */
         int x = (game.WIDTH) >>> 1;
         int y = (game.HEIGHT - 50) >>> 1;
@@ -64,7 +63,6 @@ public class MenuState implements GameState {
             x = (game.WIDTH) >>> 1;
             y += 50;
         }
-
     }
 
     @Override
@@ -91,18 +89,20 @@ public class MenuState implements GameState {
                 currentOption > 0) ) {
             setMovingUp(false);
         }
-
     }
 
     private void selectOption() {
         if ( currentOption == 0 ) {
-            game.setGameState(new PlayState(game));
+            game.getCamara().setMode(Camara.Mode.FOLLOW);
+            game.setGameState(new MenuState(game));
         }
         if ( currentOption == 1 ) {
-            game.setGameState(new OptionsMenuState(game));
+            game.getCamara().setMode(Camara.Mode.SCREEN);
+            game.setGameState(new MenuState(game));
         }
         if ( currentOption == 2 ) {
-            System.exit(0);
+            game.getCamara().setMode(Camara.Mode.MANUAL);
+            game.setGameState(new MenuState(game));
         }
 
     }
