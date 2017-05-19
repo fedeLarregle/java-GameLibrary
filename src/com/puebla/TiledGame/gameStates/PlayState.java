@@ -43,8 +43,8 @@ public class PlayState implements GameState{
     public void update() {
         handleInput();
         player.update();
-        camara.move(player, Camara.Mode.SCREEN);
-        enemy.update();
+        camara.move(player, Camara.Mode.MANUAL);
+        //enemy.update();
         if ( collisions.checkRectangleCollision(player, enemy) ) {
             player.gotHit();
             if ( player.isDead() ) {
@@ -79,6 +79,19 @@ public class PlayState implements GameState{
         if (KeyController.isPressed(KeyController.DOWN)) {
             player.setDown(true);
         }
+        if (KeyController.isPressed(KeyController.W)) {
+            camara.setMovingUp(true);
+        }
+        if (KeyController.isPressed(KeyController.A)) {
+            camara.setMovingLeft(true);
+        }
+        if (KeyController.isPressed(KeyController.S)) {
+            camara.setMovingDown(true);
+        }
+        if (KeyController.isPressed(KeyController.D)) {
+            camara.setMovingRight(true);
+        }
+
 
         if (!(KeyController.isPressed(KeyController.LEFT))) {
             player.setLeft(false);
@@ -91,6 +104,18 @@ public class PlayState implements GameState{
         }
         if (!(KeyController.isPressed(KeyController.DOWN))) {
             player.setDown(false);
+        }
+        if (!(KeyController.isPressed(KeyController.W))) {
+            camara.setMovingUp(false);
+        }
+        if (!(KeyController.isPressed(KeyController.A))) {
+            camara.setMovingLeft(false);
+        }
+        if (!(KeyController.isPressed(KeyController.S))) {
+            camara.setMovingDown(false);
+        }
+        if (!(KeyController.isPressed(KeyController.D))) {
+            camara.setMovingRight(false);
         }
 
     }

@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6944def6-e5c8-4341-9545-8ff6ed290a2a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/gameStates/PlayState.class" afterPath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/gameStates/PlayState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/Player.class" afterPath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/map/map" afterPath="$PROJECT_DIR$/out/production/tiledGame/map/map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/map/map" afterPath="$PROJECT_DIR$/resources/map/map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/KeyController.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/KeyController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java" />
     </list>
     <ignored path="tileGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,20 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TileMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/tileMap/TileMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
+            <state relative-caret-position="324">
               <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding>
                 <element signature="e#1653#1654#0" expanded="true" />
@@ -80,20 +65,36 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1215">
+            <state relative-caret-position="188">
               <caret line="107" column="23" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Camara.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Camara.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="626">
-              <caret line="58" column="77" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="77" />
+            <state relative-caret-position="158">
+              <caret line="62" column="95" selection-start-line="62" selection-start-column="95" selection-end-line="62" selection-end-column="95" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3033#3034#0" expanded="true" />
+                <element signature="e#3066#3067#0" expanded="true" />
+                <element signature="e#3119#3120#0" expanded="true" />
+                <element signature="e#3163#3164#0" expanded="true" />
+                <element signature="e#3201#3202#0" expanded="true" />
+                <element signature="e#3235#3236#0" expanded="true" />
+                <element signature="e#3290#3291#0" expanded="true" />
+                <element signature="e#3336#3337#0" expanded="true" />
+                <element signature="e#3371#3372#0" expanded="true" />
+                <element signature="e#3402#3403#0" expanded="true" />
+                <element signature="e#3451#3452#0" expanded="true" />
+                <element signature="e#3491#3492#0" expanded="true" />
+                <element signature="e#3528#3529#0" expanded="true" />
+                <element signature="e#3561#3562#0" expanded="true" />
+                <element signature="e#3614#3615#0" expanded="true" />
+                <element signature="e#3658#3659#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,14 +123,27 @@
       <file leaf-file-name="PlayState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-27">
-              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+            <state relative-caret-position="279">
+              <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuState.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KeyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/KeyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9">
+              <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+              <folding>
+                <element signature="e#2310#2311#0" expanded="true" />
+                <element signature="e#2385#2386#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/MenuState.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
@@ -162,7 +176,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/GameLogic.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/MapReader.java" />
-        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/KeyController.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/GameState.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Entity.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java" />
@@ -178,9 +191,10 @@
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Collisions.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java" />
         <option value="$PROJECT_DIR$/resources/map/map" />
-        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java" />
-        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/MenuState.java" />
+        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/KeyController.java" />
+        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" />
+        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java" />
       </list>
     </option>
   </component>
@@ -704,7 +718,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java</url>
-          <line>37</line>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -943,13 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/KeyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Points.java" />
     <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/GameOverState.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1044,46 +1051,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/tileMap/TileMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="e#1653#1654#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/map/map">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="107" column="23" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="58" column="77" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1093,6 +1064,69 @@
         <state relative-caret-position="240">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="107" column="23" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/tileMap/TileMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="e#1653#1654#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/KeyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9">
+          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+          <folding>
+            <element signature="e#2310#2311#0" expanded="true" />
+            <element signature="e#2385#2386#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="62" column="95" selection-start-line="62" selection-start-column="95" selection-end-line="62" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3033#3034#0" expanded="true" />
+            <element signature="e#3066#3067#0" expanded="true" />
+            <element signature="e#3119#3120#0" expanded="true" />
+            <element signature="e#3163#3164#0" expanded="true" />
+            <element signature="e#3201#3202#0" expanded="true" />
+            <element signature="e#3235#3236#0" expanded="true" />
+            <element signature="e#3290#3291#0" expanded="true" />
+            <element signature="e#3336#3337#0" expanded="true" />
+            <element signature="e#3371#3372#0" expanded="true" />
+            <element signature="e#3402#3403#0" expanded="true" />
+            <element signature="e#3451#3452#0" expanded="true" />
+            <element signature="e#3491#3492#0" expanded="true" />
+            <element signature="e#3528#3529#0" expanded="true" />
+            <element signature="e#3561#3562#0" expanded="true" />
+            <element signature="e#3614#3615#0" expanded="true" />
+            <element signature="e#3658#3659#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
