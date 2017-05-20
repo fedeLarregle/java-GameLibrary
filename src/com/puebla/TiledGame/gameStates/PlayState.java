@@ -5,7 +5,7 @@ import com.puebla.TiledGame.manager.Collisions;
 import com.puebla.TiledGame.manager.KeyController;
 import com.puebla.TiledGame.model.Camara;
 import com.puebla.TiledGame.model.Enemy;
-import com.puebla.TiledGame.model.Player;
+import com.puebla.TiledGame.model.RectActor;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import java.awt.Graphics;
@@ -18,7 +18,7 @@ public class PlayState implements GameState{
 
     private final TileMap tileMap;
     private final Game game;
-    private final Player player;
+    private final RectActor player;
     private final Enemy enemy;
     private final Camara camara;
     private static final Collisions collisions;
@@ -30,13 +30,13 @@ public class PlayState implements GameState{
     public PlayState(Game game) {
         this.game = game;
         this.tileMap = game.getTileMap();
-        this.player = new Player(game, tileMap);
+        this.player = new RectActor(game, tileMap);
         this.camara = game.getCamara();
-        this.player.setX(50);
-        this.player.setY(50);
+        this.player.setX(24);
+        this.player.setY(24);
         this.enemy = new Enemy(game, tileMap, player);
-        this.enemy.setX(80);
-        this.enemy.setY(50);
+        this.enemy.setX(72);
+        this.enemy.setY(24);
     }
 
     @Override

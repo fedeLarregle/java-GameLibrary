@@ -32,7 +32,7 @@ public class Camara {
         this.mode = mode;
     }
 
-    public void move(Player player) {
+    public void move(RectActor player) {
 
         switch ( mode ) {
             /* The Camara will keep the player in the middle of the scene */

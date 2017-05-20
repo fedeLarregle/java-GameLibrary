@@ -18,7 +18,8 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 /**
- * Created by federico on 12/04/17.
+ * @author federico on 12/04/17.
+ * @email fede.larregle@gmail.com
  */
 public class Game extends Canvas implements Runnable, KeyListener {
 
@@ -55,7 +56,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
         frame = new JFrame();
         gameState = new MenuState(this);
-        tileMap = new TileMap(32);
+        tileMap = new TileMap(16);
         camara = new Camara(this, tileMap, Camara.Mode.FOLLOW);
         addKeyListener(this);
     }

@@ -59,6 +59,16 @@ public class Diamond implements Entity, CollidableCircle {
     }
 
     @Override
+    public int getWidth() {
+        return 0;
+    }
+
+    @Override
+    public int getHeight() {
+        return 0;
+    }
+
+    @Override
     public int getR() {
         return ((int)RADIUS);
     }

@@ -15,7 +15,7 @@ public class Enemy implements Entity, CollidableRectangle {
 
     private Game game;
     private TileMap tileMap;
-    private Player playerToSeek;
+    private RectActor playerToSeek;
 
     private double x;
     private double y;
@@ -33,11 +33,11 @@ public class Enemy implements Entity, CollidableRectangle {
         MOVE_SPEED = 0.10;
         MAX_SPEED = 2.0;
         STOPPING_SPPED = 0.4;
-        WIDTH = 24;
-        HEIGHT = 24;
+        WIDTH = 16;
+        HEIGHT = 16;
     }
 
-    public Enemy(Game game, TileMap tileMap, Player playerToSeek) {
+    public Enemy(Game game, TileMap tileMap, RectActor playerToSeek) {
         this.game = game;
         this.tileMap = tileMap;
         this.playerToSeek = playerToSeek;

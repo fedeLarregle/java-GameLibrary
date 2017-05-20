@@ -4,16 +4,16 @@ package com.puebla.TiledGame.manager;
  * @author federico on 10/05/17.
  * @email fede.larregle@gmail.com
  */
-public interface CollidableCircle {
+public interface CollidableCircle extends Collidable {
 
     /**
-     * Returns the X point of the Collidable Circle
+     * {@inheritDoc}
      * @return
      */
     int getX();
 
     /**
-     * Returns the Y point of the Collidable Circle
+     * {@inheritDoc}
      * @return
      */
     int getY();

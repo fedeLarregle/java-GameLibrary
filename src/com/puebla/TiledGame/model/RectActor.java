@@ -16,7 +16,7 @@ import java.util.List;
  * @author federico on 13/04/17.
  * @email fede.larregle@gmail.com
  */
-public class Player implements Entity, CollidableRectangle {
+public class RectActor implements Entity, CollidableRectangle {
 
     private final TileMap tileMap;
     private final Game game;
@@ -52,11 +52,11 @@ public class Player implements Entity, CollidableRectangle {
         MOVE_SPEED = 0.3;
         MAX_SPEED = 3.0;
         STOPPING_SPPED = 0.3;
-        WIDTH = 24;
-        HEIGHT = 24;
+        WIDTH = 16;
+        HEIGHT = 16;
     }
 
-    public Player(Game game, TileMap tileMap) {
+    public RectActor(Game game, TileMap tileMap) {
 
         this.game = game;
         this.tileMap = tileMap;
@@ -67,6 +67,7 @@ public class Player implements Entity, CollidableRectangle {
     }
 
     public void setX(int x) { this.x = x; }
+
     public void setY(int y) { this.y = y; }
 
     public boolean isLeft() {

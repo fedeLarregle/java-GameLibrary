@@ -39,9 +39,9 @@ public class Collisions {
      */
     public <C extends CollidableRectangle> boolean checkRectangleCollision(C rectangle1, C rectangle2) {
         boolean areColliding = false;
-        if ( ( (rectangle1.getX() >= rectangle2.getX()) &&
+        if ( ( (rectangle1.getX() >= rectangle2.getX() - rectangle2.getWidth()) &&
                 (rectangle1.getX() <= rectangle2.getX() + rectangle2.getWidth()) ) &&
-             ( (rectangle1.getY() >= rectangle2.getY()) &&
+             ( (rectangle1.getY() >= rectangle2.getY() - rectangle2.getHeight()) &&
                 (rectangle1.getY() <= rectangle2.getY() + rectangle2.getHeight()) )
             ) {
             areColliding = true;
@@ -66,7 +66,7 @@ public class Collisions {
         return ( squaredDistance < (circle1.getR() + circle2.getR()) * (circle1.getR() + circle2.getR()) );
     }
 
-    public <C extends CollidableRectangle> boolean checkTopLeftCorners(TileMap tileMap, int x, int y, C collidable) {
+    public <C extends Collidable> boolean checkTopLeftCorners(TileMap tileMap, int x, int y, C collidable) {
 
         int leftTile = tileMap.getCol( (x - (collidable.getWidth() >>> 1)) );
         int topTile = tileMap.getRow( (y - (collidable.getHeight() >>> 1)) );
@@ -74,7 +74,7 @@ public class Collisions {
         return tileMap.getTile(topTile, leftTile) == 0;
     }
 
-    public <C extends CollidableRectangle> boolean checkTopRightCorners(TileMap tileMap, int x, int y, C collidable) {
+    public <C extends Collidable> boolean checkTopRightCorners(TileMap tileMap, int x, int y, C collidable) {
 
         int rightTile = tileMap.getCol( (x + (collidable.getWidth() >>> 1) - 1));
         int topTile = tileMap.getRow( (y - (collidable.getHeight() >>> 1)));
@@ -83,7 +83,7 @@ public class Collisions {
 
     }
 
-    public <C extends CollidableRectangle> boolean checkBottomLeftCorners(TileMap tileMap, int x, int y, C collidable) {
+    public <C extends Collidable> boolean checkBottomLeftCorners(TileMap tileMap, int x, int y, C collidable) {
 
         int leftTile = tileMap.getCol( (x - (collidable.getWidth() >>> 1)));
         int bottomTile = tileMap.getRow( (y + (collidable.getHeight() >>> 1) - 1));
@@ -91,7 +91,7 @@ public class Collisions {
         return tileMap.getTile(bottomTile, leftTile) == 0;
     }
 
-    public <C extends CollidableRectangle> boolean checkBottomRightCorners(TileMap tileMap, int x, int y, C collidable) {
+    public <C extends Collidable> boolean checkBottomRightCorners(TileMap tileMap, int x, int y, C collidable) {
 
         int rightTile = tileMap.getCol( (x + (collidable.getWidth() >>> 1) - 1));
         int bottomTile = tileMap.getRow( (y + (collidable.getHeight() >>> 1) - 1));
@@ -99,7 +99,7 @@ public class Collisions {
         return tileMap.getTile(bottomTile, rightTile) == 0;
     }
 
-    public <C extends CollidableRectangle> void checkDeathWallCollision(TileMap tileMap, Game game, int x, int y, C collidable) {
+    public <C extends Collidable> void checkDeathWallCollision(TileMap tileMap, Game game, int x, int y, C collidable) {
 
         int topTile = tileMap.getRow((int) (y - (collidable.getHeight() >>> 1)));
         int leftTile = tileMap.getCol( (x - (collidable.getWidth() >>> 1)));
