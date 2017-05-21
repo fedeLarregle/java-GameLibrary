@@ -1,6 +1,5 @@
 package com.puebla.TiledGame.model;
 
-import com.puebla.TiledGame.gameStates.GameOverState;
 import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.CollidableRectangle;
 import com.puebla.TiledGame.manager.Collisions;
@@ -136,9 +135,6 @@ public class RectActor extends Actor implements CollidableRectangle {
         x  = tempX;
         y  = tempY;
 
-        /* Move the map in order for the player to be always on the center of the window */
-        //tileMap.setX((int) ((Game.WIDTH >>> 1) - x));
-        //tileMap.setY((int) ((Game.HEIGHT >>> 1) - y));
     }
 
     @Override
@@ -169,8 +165,6 @@ public class RectActor extends Actor implements CollidableRectangle {
         DrawController.drawTextContent(
                 graphics, String.valueOf("Points: " + counter), false, counterXPosition, counterYPosition
         );
-
-
 
     }
 
