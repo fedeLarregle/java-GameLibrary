@@ -11,99 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * TODO have to check wall collision
  * @author federico on 19/05/17.
  * @email fede.larregle@gmail.com
  */
-public class OvalActor implements Entity, CollidableCircle {
+public class OvalActor extends Actor implements CollidableCircle {
 
-    private final Game game;
-    private final TileMap tileMap;
     private final List<Diamond> diamons;
-    private double x;
-    private double y;
     private double r;
-    private double deltaX;
-    private double deltaY;
-
-    private final static int WIDTH;
-    private final static int HEIGHT;
-
-    private boolean left;
-    private boolean right;
-    private boolean up;
-    private boolean down;
-
-    private final static double MOVE_SPEED;
-    private final static double MAX_SPEED;
-    private final static double STOPPING_SPPED;
-
-    private boolean topLeft;
-    private boolean topRight;
-    private boolean bottomLeft;
-    private boolean bottomRight;
 
     private int health;
-
     private int counter;
 
-    static {
-        MOVE_SPEED = 0.3;
-        MAX_SPEED = 3.0;
-        STOPPING_SPPED = 0.3;
-        WIDTH = 16;
-        HEIGHT = 16;
-    }
-
-    public OvalActor(Game game, TileMap tileMap) {
-        this.game = game;
-        this.tileMap = tileMap;
+    public OvalActor(Game game, TileMap tileMap, int x, int y) {
+        super(game, tileMap, x, y);
         this.diamons = new ArrayList<>();
         this.counter = 0;
         this.health = 50;
-    }
-
-    public void setX(int x) { this.x = x; }
-
-    public void setY(int y) { this.y = y; }
-
-    public boolean isLeft() {
-        return left;
-    }
-
-    public void setLeft(boolean left) {
-        this.left = left;
-    }
-
-    public boolean isRight() {
-        return right;
-    }
-
-    public void setRight(boolean right) {
-        this.right = right;
-    }
-
-    public boolean isUp() {
-        return up;
-    }
-
-    public void setUp(boolean up) {
-        this.up = up;
-    }
-
-    public boolean isDown() {
-        return down;
-    }
-
-    public void setDown(boolean down) {
-        this.down = down;
-    }
-
-    public int getWidth() {
-        return WIDTH;
-    }
-
-    public int getHeight() {
-        return HEIGHT;
     }
 
     public int getCounter() {
@@ -117,16 +41,6 @@ public class OvalActor implements Entity, CollidableCircle {
     public void gotHit() { this.health--; }
 
     public boolean isDead() { return ( this.health == 0 ); }
-
-    @Override
-    public int getX() {
-        return ((int)this.x);
-    }
-
-    @Override
-    public int getY() {
-        return ((int)this.y);
-    }
 
     @Override
     public int getR() {

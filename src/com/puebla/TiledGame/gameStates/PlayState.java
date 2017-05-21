@@ -4,8 +4,10 @@ import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.Collisions;
 import com.puebla.TiledGame.manager.KeyController;
 import com.puebla.TiledGame.model.Camara;
-import com.puebla.TiledGame.model.Enemy;
+import com.puebla.TiledGame.model.OvalActor;
+import com.puebla.TiledGame.model.OvalEnemy;
 import com.puebla.TiledGame.model.RectActor;
+import com.puebla.TiledGame.model.RectEnemy;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import java.awt.Graphics;
@@ -19,7 +21,7 @@ public class PlayState implements GameState{
     private final TileMap tileMap;
     private final Game game;
     private final RectActor player;
-    private final Enemy enemy;
+    private final RectEnemy enemy;
     private final Camara camara;
     private static final Collisions collisions;
 
@@ -30,13 +32,9 @@ public class PlayState implements GameState{
     public PlayState(Game game) {
         this.game = game;
         this.tileMap = game.getTileMap();
-        this.player = new RectActor(game, tileMap);
+        this.player = new RectActor(game, tileMap, 24, 24);
         this.camara = game.getCamara();
-        this.player.setX(24);
-        this.player.setY(24);
-        this.enemy = new Enemy(game, tileMap, player);
-        this.enemy.setX(72);
-        this.enemy.setY(24);
+        this.enemy = new RectEnemy(game, tileMap, player, 72, 24);
     }
 
     @Override
@@ -51,6 +49,13 @@ public class PlayState implements GameState{
                 game.setGameState(new GameOverState(game));
             }
         }
+        /* TODO check collision for circled player and enemy
+        if ( collisions.checkCircleCollision(player, enemy) ) {
+            player.gotHit();
+            if ( player.isDead() ) {
+                game.setGameState(new GameOverState(game));
+            }
+        }*/
 
     }
 

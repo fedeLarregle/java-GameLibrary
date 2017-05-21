@@ -38,7 +38,7 @@ public class TileMap {
 
                 if ( point == 0 ) {
                     /* If we found a 0 in the txt map file we paint with a brown color */
-                    graphics.setColor(new Color(139,69,19));
+                    graphics.setColor(new Color(0,0,177));
                 }
                 if ( point == 1 ) {
                     /* If we found a 1 in the txt map file we paint with a black color */

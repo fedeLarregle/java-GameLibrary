@@ -1,6 +1,7 @@
 package com.puebla.TiledGame.model;
 
 import com.puebla.TiledGame.main.Game;
+import com.puebla.TiledGame.manager.Collidable;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 
@@ -32,7 +33,7 @@ public class Camara {
         this.mode = mode;
     }
 
-    public void move(RectActor player) {
+    public <C extends Collidable> void move(C player) {
 
         switch ( mode ) {
             /* The Camara will keep the player in the middle of the scene */

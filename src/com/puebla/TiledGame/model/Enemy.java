@@ -1,33 +1,31 @@
 package com.puebla.TiledGame.model;
 
 import com.puebla.TiledGame.main.Game;
-import com.puebla.TiledGame.manager.CollidableRectangle;
 import com.puebla.TiledGame.tileMap.TileMap;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * @author federico on 29/04/17.
+ * @author federico on 20/05/17.
  * @email fede.larregle@gmail.com
  */
-public class Enemy implements Entity, CollidableRectangle {
+public abstract class Enemy<A extends Actor> implements Entity {
 
-    private Game game;
-    private TileMap tileMap;
-    private RectActor playerToSeek;
+    protected Game game;
+    protected TileMap tileMap;
+    protected A actorToSeek;
 
-    private double x;
-    private double y;
-    private double deltaX;
-    private double deltaY;
+    protected double x;
+    protected double y;
+    protected double deltaX;
+    protected double deltaY;
 
-    private final static int WIDTH;
-    private final static int HEIGHT;
+    protected final static int WIDTH;
+    protected final static int HEIGHT;
 
-    private final static double MOVE_SPEED;
-    private final static double MAX_SPEED;
-    private final static double STOPPING_SPPED;
+    protected final static double MOVE_SPEED;
+    protected final static double MAX_SPEED;
+    protected final static double STOPPING_SPPED;
 
     static {
         MOVE_SPEED = 0.10;
@@ -37,144 +35,93 @@ public class Enemy implements Entity, CollidableRectangle {
         HEIGHT = 16;
     }
 
-    public Enemy(Game game, TileMap tileMap, RectActor playerToSeek) {
+    public Enemy(Game game, TileMap tileMap, A actorToSeek, int x, int y) {
         this.game = game;
         this.tileMap = tileMap;
-        this.playerToSeek = playerToSeek;
-    }
-
-    public void moveRight() {
-        deltaX += MOVE_SPEED;
-        if ( deltaX > MAX_SPEED ) {
-            deltaX = MAX_SPEED;
-        }
-        this.x += deltaX;
-    }
-
-    public void moveLeft() {
-        deltaX -= MOVE_SPEED;
-        if ( deltaX < -MAX_SPEED ) {
-            deltaX = -MAX_SPEED;
-        }
-        this.x += deltaX;
-    }
-
-    public void moveUp() {
-
-        deltaY -= MOVE_SPEED;
-        if ( deltaY < -MAX_SPEED ) {
-            deltaY = -MAX_SPEED;
-        }
-        this.y += deltaY;
-    }
-
-    public void moveDown() {
-
-        deltaY += MOVE_SPEED;
-        if ( deltaY > MAX_SPEED ) {
-            deltaY = MAX_SPEED;
-        }
-        this.y += deltaY;
-    }
-
-    public void stoppingToLeft() {
-        deltaX -= STOPPING_SPPED;
-        if ( deltaX < 0 ) {
-            deltaX = 0;
-        }
-        this.x += deltaX;
-    }
-
-    public void stoppingToRight() {
-        deltaX += STOPPING_SPPED;
-        if ( deltaX > 0 ) {
-            deltaX = 0;
-        }
-        this.x += deltaX;
-    }
-
-    public void stoppingToUp() {
-        deltaY -= STOPPING_SPPED;
-        if ( deltaY < 0 ) {
-            deltaY = 0;
-        }
-        this.y += deltaY;
-    }
-
-    public void stoppingToDown() {
-        deltaY += STOPPING_SPPED;
-        if ( deltaY > 0 ) {
-            deltaY = 0;
-        }
-        this.y += deltaY;
+        this.actorToSeek = actorToSeek;
+        this.x = x;
+        this.y = y;
     }
 
     @Override
-    public void update() {
-
-        if ( ((this.playerToSeek.getX() - this.getX()) > 0) ) {
-            this.moveRight();
-        } else if ( ((this.playerToSeek.getX() - this.getX()) < 0) ) {
-            this.moveLeft();
-        }
-        if ( (this.playerToSeek.getY() - this.getY()) > 0 ) {
-            this.moveDown();
-        } else if ( (this.playerToSeek.getY() - this.getY()) < 0 ) {
-            this.moveUp();
-        }
-        else {
-            if (deltaX > 0) {
-                stoppingToLeft();
-            } else if (deltaX < 0) {
-                stoppingToRight();
-            } else if (deltaY > 0) {
-                stoppingToUp();
-            } else if (deltaY < 0) {
-                stoppingToDown();
-            }
-        }
-
-    }
+    public abstract void update();
 
     @Override
-    public void draw(Graphics graphics) {
+    public abstract void draw(Graphics graphics);
 
-        int tileX = tileMap.getX();
-        int tileY = tileMap.getY();
-
-        graphics.setColor(new Color(178,34,34));
-        graphics.fillRect(
-                ((int)(tileX + ( x - ( WIDTH >>> 1 ) ))),
-                ((int)(tileY + ( y - ( HEIGHT >>> 1 ) ))),
-                WIDTH,
-                HEIGHT);
+    public Game getGame() {
+        return game;
     }
 
-    @Override
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public TileMap getTileMap() {
+        return tileMap;
+    }
+
+    public void setTileMap(TileMap tileMap) {
+        this.tileMap = tileMap;
+    }
+
+    public A getActorToSeek() {
+        return actorToSeek;
+    }
+
+    public void setActorToSeek(A actorToSeek) {
+        this.actorToSeek = actorToSeek;
+    }
+
     public int getX() {
         return ((int)x);
-    }
-
-    @Override
-    public int getY() {
-        return ((int)y);
-    }
-
-    @Override
-    public int getWidth() {
-        return WIDTH;
-    }
-
-    @Override
-    public int getHeight() {
-        return HEIGHT;
     }
 
     public void setX(double x) {
         this.x = x;
     }
 
+    public int getY() {
+        return ((int)y);
+    }
+
     public void setY(double y) {
         this.y = y;
+    }
+
+    public double getDeltaX() {
+        return deltaX;
+    }
+
+    public void setDeltaX(double deltaX) {
+        this.deltaX = deltaX;
+    }
+
+    public double getDeltaY() {
+        return deltaY;
+    }
+
+    public void setDeltaY(double deltaY) {
+        this.deltaY = deltaY;
+    }
+
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    public int getHeight() {
+        return HEIGHT;
+    }
+
+    public static double getMoveSpeed() {
+        return MOVE_SPEED;
+    }
+
+    public static double getMaxSpeed() {
+        return MAX_SPEED;
+    }
+
+    public static double getStoppingSpped() {
+        return STOPPING_SPPED;
     }
 }
