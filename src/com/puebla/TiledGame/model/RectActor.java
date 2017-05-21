@@ -5,6 +5,7 @@ import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.CollidableRectangle;
 import com.puebla.TiledGame.manager.Collisions;
 import com.puebla.TiledGame.manager.DrawController;
+import com.puebla.TiledGame.manager.Movement;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import java.awt.Color;
@@ -18,10 +19,15 @@ import java.util.List;
  */
 public class RectActor extends Actor implements CollidableRectangle {
 
+    private final static Movement MOVEMENT;
     private final List<Diamond> diamons;
 
     private int health;
     private int counter;
+
+    static {
+        MOVEMENT = Movement.getInstance();
+    }
 
     public RectActor(Game game, TileMap tileMap, int x, int y) {
         super(game, tileMap, x, y);
@@ -46,22 +52,22 @@ public class RectActor extends Actor implements CollidableRectangle {
     @Override
     public void update() {
         if ( isLeft() ) {
-            moveLeft();
+            deltaX = MOVEMENT.moveLeft(deltaX, MOVE_SPEED, MAX_SPEED);
         } else if ( isRight() ) {
-            moveRight();
+            deltaX = MOVEMENT.moveRight(deltaX, MOVE_SPEED, MAX_SPEED);
         } else if ( isUp() ) {
-            moveUp();
+            deltaY = MOVEMENT.moveUp(deltaY, MOVE_SPEED, MAX_SPEED);
         } else if ( isDown() ) {
-            moveDown();
+            deltaY = MOVEMENT.moveDown(deltaY, MOVE_SPEED, MAX_SPEED);
         } else {
             if ( deltaX > 0 ) {
-                stoppingToLeft();
+                deltaX = MOVEMENT.stoppingToLeft(deltaX, STOPPING_SPPED);
             } else if ( deltaX < 0 ) {
-                stoppingToRight();
+                deltaX = MOVEMENT.stoppingToRight(deltaX, STOPPING_SPPED);
             } else if ( deltaY > 0 ) {
-                stoppingToUp();
+                deltaY = MOVEMENT.stoppingToUp(deltaY, STOPPING_SPPED);
             } else if ( deltaY < 0 ) {
-                stoppingToDown();
+                deltaY = MOVEMENT.stoppingToDown(deltaY, STOPPING_SPPED);
             }
         }
 
@@ -166,62 +172,6 @@ public class RectActor extends Actor implements CollidableRectangle {
 
 
 
-    }
-
-    public void moveLeft() {
-        deltaX -= MOVE_SPEED;
-        if ( deltaX < -MAX_SPEED ) {
-            deltaX = -MAX_SPEED;
-        }
-    }
-
-    public void moveRight() {
-        deltaX += MOVE_SPEED;
-        if ( deltaX > MAX_SPEED ) {
-            deltaX = MAX_SPEED;
-        }
-    }
-
-    public void moveUp() {
-        deltaY -= MOVE_SPEED;
-        if ( deltaY < -MAX_SPEED ) {
-            deltaY = -MAX_SPEED;
-        }
-    }
-
-    public void moveDown() {
-        deltaY += MOVE_SPEED;
-        if ( deltaY > MAX_SPEED ) {
-            deltaY = MAX_SPEED;
-        }
-    }
-
-    public void stoppingToLeft() {
-        deltaX -= STOPPING_SPPED;
-        if ( deltaX < 0 ) {
-            deltaX = 0;
-        }
-    }
-
-    public void stoppingToRight() {
-        deltaX += STOPPING_SPPED;
-        if ( deltaX > 0 ) {
-            deltaX = 0;
-        }
-    }
-
-    public void stoppingToUp() {
-        deltaY -= STOPPING_SPPED;
-        if ( deltaY < 0 ) {
-            deltaY = 0;
-        }
-    }
-
-    public void stoppingToDown() {
-        deltaY += STOPPING_SPPED;
-        if ( deltaY > 0 ) {
-            deltaY = 0;
-        }
     }
 
 }

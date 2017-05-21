@@ -16,7 +16,7 @@ public class Movement {
 
     public static Movement getInstance() { return instance; }
 
-    public static double moveLeft(int deltaX, final int MOVE_SPEED, final int MAX_SPEED) {
+    public static double moveLeft(double deltaX, final double MOVE_SPEED, final double MAX_SPEED) {
         deltaX -= MOVE_SPEED;
         if ( deltaX < -MAX_SPEED ) {
             deltaX = -MAX_SPEED;
@@ -24,7 +24,7 @@ public class Movement {
         return deltaX;
     }
 
-    public static double moveRight(int deltaX, final int MOVE_SPEED, final int MAX_SPEED) {
+    public static double moveRight(double deltaX, final double MOVE_SPEED, final double MAX_SPEED) {
         deltaX += MOVE_SPEED;
         if ( deltaX > MAX_SPEED ) {
             deltaX = MAX_SPEED;
@@ -32,7 +32,7 @@ public class Movement {
         return deltaX;
     }
 
-    public static double moveUp(int deltaY, final int MOVE_SPEED, final int MAX_SPEED) {
+    public static double moveUp(double deltaY, final double MOVE_SPEED, final double MAX_SPEED) {
         deltaY -= MOVE_SPEED;
         if ( deltaY < -MAX_SPEED ) {
             deltaY = -MAX_SPEED;
@@ -40,7 +40,7 @@ public class Movement {
         return deltaY;
     }
 
-    public static double moveDown(int deltaY, final int MOVE_SPEED, final int MAX_SPEED) {
+    public static double moveDown(double deltaY, final double MOVE_SPEED, final double MAX_SPEED) {
         deltaY += MOVE_SPEED;
         if ( deltaY > MAX_SPEED ) {
             deltaY = MAX_SPEED;
@@ -48,7 +48,7 @@ public class Movement {
         return deltaY;
     }
 
-    public static double stoppingToLeft(int deltaX, final int STOPPING_SPPED) {
+    public static double stoppingToLeft(double deltaX, final double STOPPING_SPPED) {
         deltaX -= STOPPING_SPPED;
         if ( deltaX < 0 ) {
             deltaX = 0;
@@ -56,7 +56,7 @@ public class Movement {
         return deltaX;
     }
 
-    public static double stoppingToRight(int deltaX, final int STOPPING_SPPED) {
+    public static double stoppingToRight(double deltaX, final double STOPPING_SPPED) {
         deltaX += STOPPING_SPPED;
         if ( deltaX > 0 ) {
             deltaX = 0;
@@ -64,7 +64,7 @@ public class Movement {
         return deltaX;
     }
 
-    public static double stoppingToUp(int deltaY, final int STOPPING_SPPED) {
+    public static double stoppingToUp(double deltaY, final double STOPPING_SPPED) {
         deltaY -= STOPPING_SPPED;
         if ( deltaY < 0 ) {
             deltaY = 0;
@@ -72,7 +72,7 @@ public class Movement {
         return deltaY;
     }
 
-    public static double stoppingToDown(int deltaY, final int STOPPING_SPPED) {
+    public static double stoppingToDown(double deltaY, final double STOPPING_SPPED) {
         deltaY += STOPPING_SPPED;
         if ( deltaY > 0 ) {
             deltaY = 0;

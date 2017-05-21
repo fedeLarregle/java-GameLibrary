@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6944def6-e5c8-4341-9545-8ff6ed290a2a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Movement.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Actor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/OvalEnemy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/RectEnemy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/gameStates/PlayState.class" afterPath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/gameStates/PlayState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/Camara$1.class" afterPath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/Camara$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/Camara$Mode.class" afterPath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/Camara$Mode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/Camara.class" afterPath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/Camara.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/OvalActor.class" afterPath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/OvalActor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/RectActor.class" afterPath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/model/RectActor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/tileMap/TileMap.class" afterPath="$PROJECT_DIR$/out/production/tiledGame/com/puebla/TiledGame/tileMap/TileMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiledGame/map/map" afterPath="$PROJECT_DIR$/out/production/tiledGame/map/map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/map/map" afterPath="$PROJECT_DIR$/resources/map/map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Movement.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Movement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/OvalActor.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/OvalActor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/RectActor.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/model/RectActor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/puebla/TiledGame/tileMap/TileMap.java" afterPath="$PROJECT_DIR$/src/com/puebla/TiledGame/tileMap/TileMap.java" />
     </list>
     <ignored path="tileGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,22 +49,22 @@
       <file leaf-file-name="OvalActor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/OvalActor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="195" column="11" selection-start-line="195" selection-start-column="11" selection-end-line="195" selection-end-column="11" />
+            <state relative-caret-position="120">
+              <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="75" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#922#923#0" expanded="true" />
-                <element signature="e#960#961#0" expanded="true" />
+                <element signature="e#1075#1076#0" expanded="true" />
+                <element signature="e#1113#1114#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Movement.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Movement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Movement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-420">
-              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            <state relative-caret-position="270">
+              <caret line="18" column="86" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -135,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RectActor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RectActor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/RectActor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
+            <state relative-caret-position="481">
+              <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -197,13 +180,13 @@
         <option value="$PROJECT_DIR$/resources/map/map" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Camara.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Actor.java" />
-        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/RectActor.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/OvalEnemy.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/Enemy.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/RectEnemy.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/gameStates/PlayState.java" />
-        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/OvalActor.java" />
         <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Movement.java" />
+        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/OvalActor.java" />
+        <option value="$PROJECT_DIR$/src/com/puebla/TiledGame/model/RectActor.java" />
       </list>
     </option>
   </component>
@@ -1062,14 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/RectActor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/map/map">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1114,18 +1089,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/OvalActor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="195" column="11" selection-start-line="195" selection-start-column="11" selection-end-line="195" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#922#923#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/Actor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -1138,8 +1101,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/manager/Movement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="270">
+          <caret line="18" column="86" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/OvalActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="75" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1075#1076#0" expanded="true" />
+            <element signature="e#1113#1114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/puebla/TiledGame/model/RectActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
           <folding />
         </state>
       </provider>
