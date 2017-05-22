@@ -19,6 +19,7 @@ public class OvalEnemy extends Enemy<OvalActor> implements CollidableCircle {
 
     public OvalEnemy(Game game, TileMap tileMap, OvalActor ovalActor, int x, int y) {
         super(game, tileMap, ovalActor, x, y);
+        this.r = getWidth() >> 1;
     }
 
     public void moveRight() {

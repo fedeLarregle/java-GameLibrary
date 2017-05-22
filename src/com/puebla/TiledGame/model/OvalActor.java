@@ -34,6 +34,7 @@ public class OvalActor extends Actor implements CollidableCircle {
         this.diamons = new ArrayList<>();
         this.counter = 0;
         this.health = 50;
+        this.r = getWidth() >> 1;
     }
 
     public int getCounter() {

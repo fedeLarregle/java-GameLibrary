@@ -21,12 +21,12 @@ public class Animation {
     }
 
     public void update() {
-        frameCounter++;
+        frameCounter = ( frameCounter + 1 > Integer.MAX_VALUE ) ? 0 : frameCounter +  1;
 
         if ( !((frameCounter % 10) == 0) ) {
             return;
         }
-        
+
         currentImage++;
 
         if ( currentImage == numberImages ) {

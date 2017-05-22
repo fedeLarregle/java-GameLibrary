@@ -40,8 +40,8 @@ public abstract class Actor implements Entity{
         MOVE_SPEED = 0.3;
         MAX_SPEED = 3.0;
         STOPPING_SPPED = 0.3;
-        WIDTH = 12;
-        HEIGHT = 12;
+        WIDTH = 16;
+        HEIGHT = 16;
     }
 
     public Actor(final Game game, final TileMap tileMap, int x, int y) {
