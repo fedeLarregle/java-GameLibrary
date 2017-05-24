@@ -56,15 +56,15 @@ public class GameOverState implements GameState {
 
     @Override
     public void handleInput() {
-        if ( KeyController.isPressed(KeyController.DOWN) &&
+        if ( KeyController.isPressedPreviousInMind(KeyController.DOWN) &&
                 currentOption < (OPTIONS.length - 1) ) {
             currentOption++;
         }
-        if ( KeyController.isPressed(KeyController.UP) &&
+        if ( KeyController.isPressedPreviousInMind(KeyController.UP) &&
                 currentOption > 0 ) {
             currentOption--;
         }
-        if ( KeyController.isPressed(KeyController.ENTER) ) {
+        if ( KeyController.isPressedPreviousInMind(KeyController.ENTER) ) {
             selectOption();
         }
     }
