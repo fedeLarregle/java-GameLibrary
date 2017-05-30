@@ -8,6 +8,7 @@ import com.puebla.TiledGame.model.Camara;
 import com.puebla.TiledGame.tileMap.TileMap;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,18 +22,24 @@ import java.awt.image.BufferedImage;
  * @author federico on 12/04/17.
  * @email fede.larregle@gmail.com
  */
-public class Game extends Canvas implements Runnable, KeyListener {
+public class Game extends JPanel implements Runnable, KeyListener {
+
+    public static final Game game;
+    public static final JFrame frame;
+    public static final Board board;
 
     public static final int WIDTH;
     public static final int HEIGHT;
+    public static final short BOARD_X;
+    public static final short BOARD_Y;
 
     public final static int FRAMES_PER_SECOND;
     public final static long TIME_PER_FRAME;
 
-    private Thread thread;
+    private static final Thread thread;
+
     public boolean isRunning;
 
-    private JFrame frame;
     private BufferedImage image;
 
     private GameState gameState;
@@ -40,21 +47,29 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private Camara camara;
 
     static {
+        game = new Game();
+        frame = new JFrame();
+        board = new Board();
+
+        thread = new Thread(game);
         WIDTH = 480;
         HEIGHT = 480;
+        BOARD_X = 10;
+        BOARD_Y = 10;
         FRAMES_PER_SECOND = 30;
         TIME_PER_FRAME = 1_000 / FRAMES_PER_SECOND;
     }
 
 
     public Game() {
-
+        super();
+        setBackground(Color.BLACK);
+        setLayout(null);
         Dimension size = new Dimension(WIDTH, HEIGHT);
         setPreferredSize(size);
         setFocusable(true);
         requestFocus();
 
-        frame = new JFrame();
         gameState = new MenuState(this);
         tileMap = new TileMap(16);
         camara = new Camara(this, tileMap, Camara.Mode.FOLLOW);
@@ -63,7 +78,6 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     public synchronized void start() {
         isRunning = true;
-        thread = new Thread(this);
         thread.start();
     }
 
@@ -79,7 +93,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     @Override
     public void run() {
 
-        GameLogic.gameLoop(thread, this);
+        GameLogic.gameLoop(thread, game);
     }
 
     public void update () {
@@ -88,7 +102,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     }
 
     public void draw() {
-
+        /*
         BufferStrategy bufferStrategy = getBufferStrategy();
         if ( bufferStrategy == null) {
             createBufferStrategy(3);
@@ -103,6 +117,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
         graphics.dispose();
         bufferStrategy.show();
+        */
     }
 
     @Override
@@ -134,15 +149,14 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     public static void main (String... args) {
 
-        Game game = new Game();
-        game.frame.setResizable(false);
-        game.frame.setTitle("Tiled Game");
-        game.frame.add(game);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.add(game);
 
-        game.frame.pack();
-        game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        game.frame.setLocationRelativeTo(null);
-        game.frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+        board.setLocation(BOARD_X, BOARD_Y);
+        game.add(board);
+        frame.setVisible(true);
 
         game.start();
     }
