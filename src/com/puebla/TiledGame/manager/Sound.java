@@ -31,14 +31,21 @@ public class Sound {
     public void load(String soundName, String path) {
         Clip clip;
         if ( sounds.get(soundName) == null ) {
+            AudioInputStream soundStream = null;
             try {
-                AudioInputStream sound = AudioSystem.getAudioInputStream(Sound.class.getClassLoader().getResourceAsStream(soundName));
-                AudioFormat format = sound.getFormat();
+                soundStream = AudioSystem.getAudioInputStream(Sound.class.getClassLoader().getResourceAsStream(soundName));
+                AudioFormat format = soundStream.getFormat();
                 DataLine.Info info = new DataLine.Info(Clip.class, format);
                 clip = ((Clip)AudioSystem.getLine(info));
-                clip.open(sound);
+                clip.open(soundStream);
 
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) { ex.printStackTrace(); }
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                ex.printStackTrace();
+            } finally {
+                try {
+                    soundStream.close();
+                } catch (IOException ioe) { ioe.printStackTrace(); }
+            }
         }
     }
 
@@ -61,5 +68,12 @@ public class Sound {
 
     public void loop(String sound) {
         if ( sounds.get(sound) != null ) { sounds.get(sound).loop(Clip.LOOP_CONTINUOUSLY);}
+    }
+
+    public void close(String sound) {
+        if ( sounds.get(sound) != null ) {
+            sounds.get(sound).stop();
+            sounds.get(sound).close();
+        }
     }
 }
