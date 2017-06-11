@@ -2,7 +2,7 @@ package com.puebla.TiledGame.gameStates.statesImpl;
 
 import com.puebla.TiledGame.gameStates.PauseState;
 import com.puebla.TiledGame.gameStates.PlayState;
-import com.puebla.TiledGame.main.GameImpl;
+import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.KeyController;
 import com.puebla.TiledGame.model.Camara;
 import com.puebla.TiledGame.model.RectActor;
@@ -14,13 +14,13 @@ import java.awt.Graphics;
  * @author federico on 23/05/17.
  * @email fede.larregle@gmail.com
  */
-public class PlayStateImpl extends PlayState<GameImpl, PauseStateImpl, GameOverStateImpl>{
+public class PlayStateImpl extends PlayState<PauseStateImpl, GameOverStateImpl>{
 
     private final RectActor player;
     private final RectEnemy enemy;
     private final Camara camara;
 
-    public PlayStateImpl(GameImpl game,
+    public PlayStateImpl(Game game,
                          RectActor player,
                          RectEnemy enemy,
                          Camara camara) {

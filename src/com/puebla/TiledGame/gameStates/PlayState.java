@@ -12,10 +12,10 @@ import java.awt.Graphics;
  * @author federico on 12/04/17.
  * @email fede.larregle@gmail.com
  */
-public class PlayState<G extends Game, P extends PauseState, O extends GameOverState> implements GameState{
+public class PlayState< P extends PauseState, O extends GameOverState> implements GameState{
 
     private final TileMap tileMap;
-    private final G game;
+    private final Game game;
     private P pauseImpl;
     private O gameOverImpl;
     private static final Collisions collisions;
@@ -24,7 +24,7 @@ public class PlayState<G extends Game, P extends PauseState, O extends GameOverS
         collisions = Collisions.getInstance();
     }
 
-    public PlayState(G game) {
+    public PlayState(Game game) {
         this.game = game;
         this.tileMap = game.getTileMap();
     }
@@ -53,7 +53,7 @@ public class PlayState<G extends Game, P extends PauseState, O extends GameOverS
         return tileMap;
     }
 
-    public G getGame() {
+    public Game getGame() {
         return game;
     }
 

@@ -9,14 +9,14 @@ import java.awt.Graphics;
  * @author federico on 23/05/17.
  * @email fede.larregle@gmail.com
  */
-public abstract class WinState<G extends Game, M extends MenuState> implements GameState {
+public abstract class WinState<M extends MenuState> implements GameState {
 
-    protected final G game;
+    protected final Game game;
     protected final M menu;
     protected final String[] options;
     protected int currentOption;
 
-    public WinState(final G game, final M menu, final String[] options) {
+    public WinState(final Game game, final M menu, final String[] options) {
         this.game = game;
         this.menu = menu;
         this.options = options;

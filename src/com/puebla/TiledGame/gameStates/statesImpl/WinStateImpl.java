@@ -1,7 +1,7 @@
 package com.puebla.TiledGame.gameStates.statesImpl;
 
 import com.puebla.TiledGame.gameStates.WinState;
-import com.puebla.TiledGame.main.GameImpl;
+import com.puebla.TiledGame.main.Game;
 import com.puebla.TiledGame.manager.KeyController;
 
 import java.awt.Graphics;
@@ -10,13 +10,13 @@ import java.awt.Graphics;
  * @author federico on 23/05/17.
  * @email fede.larregle@gmail.com
  */
-public class WinStateImpl extends WinState<GameImpl, MenuStateImpl> {
+public class WinStateImpl extends WinState<MenuStateImpl> {
 
     private boolean movingUp;
     private boolean movingDown;
     private boolean selectingOption;
 
-    public WinStateImpl(GameImpl game, MenuStateImpl menu, String[] options) {
+    public WinStateImpl(Game game, MenuStateImpl menu, String[] options) {
         super(game, menu, options);
         this.movingUp = false;
         this.movingDown = false;
