@@ -62,6 +62,14 @@ public class Sound {
         }
     }
 
+    public int pause(String sound) {
+        if ( (sounds.get(sound) != null) && (sounds.get(sound).isRunning()) ) {
+            sounds.get(sound).stop();
+            return sounds.get(sound).getFramePosition();
+        }
+        return -1;
+    }
+
     public void stop(String sound) {
         if ( sounds.get(sound) != null) { sounds.get(sound).stop(); }
     }
